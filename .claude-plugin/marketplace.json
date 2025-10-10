@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "development-utilities",
-      "source": "./commands",
+      "source": "./",
       "description": "Essential development utilities including containerization, prompt writing, and code reflection tools",
       "version": "1.0.0",
       "author": {
@@ -25,17 +25,17 @@
       "keywords": ["utilities", "docker", "containerization", "development"],
       "category": "productivity",
       "commands": [
-        "./containerize.md",
-        "./prompt_writer.md",
-        "./primer.md",
-        "./reflection.md",
-        "./create-agentsmd-symlink.md"
+        "./commands/containerize.md",
+        "./commands/prompt_writer.md",
+        "./commands/primer.md",
+        "./commands/reflection.md",
+        "./commands/create-agentsmd-symlink.md"
       ],
       "strict": false
     },
     {
       "name": "planning-tools",
-      "source": "./commands",
+      "source": "./",
       "description": "Advanced planning and thinking tools for complex problem-solving and systematic planning",
       "version": "1.0.0",
       "author": {
@@ -48,17 +48,17 @@
       "keywords": ["planning", "thinking", "problem-solving", "analysis"],
       "category": "productivity",
       "commands": [
-        "./planning.md",
-        "./ultra-think.md",
-        "./generate-prp.md",
-        "./execute-prp.md",
-        "./infinite.md"
+        "./commands/planning.md",
+        "./commands/ultra-think.md",
+        "./commands/generate-prp.md",
+        "./commands/execute-prp.md",
+        "./commands/infinite.md"
       ],
       "strict": false
     },
     {
       "name": "parallel-execution",
-      "source": "./commands",
+      "source": "./",
       "description": "Tools for preparing and executing tasks in parallel for improved efficiency",
       "version": "1.0.0",
       "author": {
@@ -71,14 +71,14 @@
       "keywords": ["parallel", "execution", "performance", "efficiency"],
       "category": "productivity",
       "commands": [
-        "./prep-parallel.md",
-        "./execute-parallel.md"
+        "./commands/prep-parallel.md",
+        "./commands/execute-parallel.md"
       ],
       "strict": false
     },
     {
       "name": "fullstack-developer",
-      "source": "./agents/fullstack-developer",
+      "source": "./",
       "description": "Full-stack development specialist agent covering frontend, backend, and database technologies",
       "version": "1.0.0",
       "author": {
@@ -90,12 +90,12 @@
       "license": "MIT",
       "keywords": ["fullstack", "development", "react", "nodejs", "database", "agent"],
       "category": "agents",
-      "agents": ["./fullstack-developer.md"],
+      "agents": ["./agents/fullstack-developer/fullstack-developer.md"],
       "strict": false
     },
     {
       "name": "documentation-manager",
-      "source": "./agents/documentation-manager",
+      "source": "./",
       "description": "Expert documentation specialist for maintaining comprehensive technical documentation",
       "version": "1.0.0",
       "author": {
@@ -107,12 +107,12 @@
       "license": "MIT",
       "keywords": ["documentation", "readme", "technical-writing", "agent"],
       "category": "agents",
-      "agents": ["./documentation-manager.md"],
+      "agents": ["./agents/documentation-manager/documentation-manager.md"],
       "strict": false
     },
     {
       "name": "validation-gates",
-      "source": "./agents/validation-gates",
+      "source": "./",
       "description": "Testing and validation specialist that proactively runs tests and ensures quality gates are met",
       "version": "1.0.0",
       "author": {
@@ -124,12 +124,12 @@
       "license": "MIT",
       "keywords": ["testing", "validation", "quality", "agent"],
       "category": "agents",
-      "agents": ["./validation-gates.md"],
+      "agents": ["./agents/validation-gates/validation-gates.md"],
       "strict": false
     },
     {
       "name": "tool-usage-logger",
-      "source": "./hooks/tool-logger",
+      "source": "./",
       "description": "PostToolUse hook that logs all tool usage for tracking and debugging purposes",
       "version": "1.0.0",
       "author": {
@@ -148,7 +148,7 @@
             "hooks": [
               {
                 "type": "command",
-                "command": "./log-tool-usage.sh"
+                "command": "./hooks/tool-logger/log-tool-usage.sh"
               }
             ]
           }
