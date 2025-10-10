@@ -13,7 +13,7 @@
   "plugins": [
     {
       "name": "development-utilities",
-      "source": "./development-utilities",
+      "source": "./commands",
       "description": "Essential development utilities including containerization, prompt writing, and code reflection tools",
       "version": "1.0.0",
       "author": {
@@ -24,17 +24,17 @@
       "keywords": ["utilities", "docker", "containerization", "development"],
       "license": "MIT",
       "commands": [
-        "./commands/containerize.md",
-        "./commands/prompt_writer.md",
-        "./commands/primer.md",
-        "./commands/reflection.md",
-        "./commands/create-agentsmd-symlink.md"
+        "./containerize.md",
+        "./prompt_writer.md",
+        "./primer.md",
+        "./reflection.md",
+        "./create-agentsmd-symlink.md"
       ],
       "strict": false
     },
     {
       "name": "planning-tools",
-      "source": "./planning-tools",
+      "source": "./commands",
       "description": "Advanced planning and thinking tools for complex problem-solving and systematic planning",
       "version": "1.0.0",
       "author": {
@@ -45,17 +45,17 @@
       "keywords": ["planning", "thinking", "problem-solving", "analysis"],
       "license": "MIT",
       "commands": [
-        "./commands/planning.md",
-        "./commands/ultra-think.md",
-        "./commands/generate-prp.md",
-        "./commands/execute-prp.md",
-        "./commands/infinite.md"
+        "./planning.md",
+        "./ultra-think.md",
+        "./generate-prp.md",
+        "./execute-prp.md",
+        "./infinite.md"
       ],
       "strict": false
     },
     {
       "name": "parallel-execution",
-      "source": "./parallel-execution",
+      "source": "./commands",
       "description": "Tools for preparing and executing tasks in parallel for improved efficiency",
       "version": "1.0.0",
       "author": {
@@ -66,8 +66,8 @@
       "keywords": ["parallel", "execution", "performance", "efficiency"],
       "license": "MIT",
       "commands": [
-        "./commands/prep-parallel.md",
-        "./commands/execute-parallel.md"
+        "./prep-parallel.md",
+        "./execute-parallel.md"
       ],
       "strict": false
     },
@@ -145,7 +145,7 @@
     },
     {
       "name": "mcp-essentials",
-      "source": "./mcp-collections/essentials",
+      "source": "./mcp/essentials",
       "description": "Essential MCP servers for web fetching, time operations, and IDE integration",
       "version": "1.0.0",
       "author": {
@@ -173,7 +173,7 @@
     },
     {
       "name": "mcp-ai-tools",
-      "source": "./mcp-collections/ai-tools",
+      "source": "./mcp/ai-tools",
       "description": "AI-powered MCP servers including Serena planning assistant and Gemini bridge",
       "version": "1.0.0",
       "author": {
@@ -212,7 +212,7 @@
     },
     {
       "name": "mcp-data-sources",
-      "source": "./mcp-collections/data-sources",
+      "source": "./mcp/data-sources",
       "description": "Data and API MCP servers for weather, crypto, stocks, and workspace integration",
       "version": "1.0.0",
       "author": {
@@ -300,7 +300,7 @@
     },
     {
       "name": "mcp-dev-tools",
-      "source": "./mcp-collections/dev-tools",
+      "source": "./mcp/dev-tools",
       "description": "Development and automation tools including Chrome DevTools, n8n, and network management",
       "version": "1.0.0",
       "author": {
