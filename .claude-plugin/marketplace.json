@@ -14,14 +14,6 @@
       "name": "development-utilities",
       "source": "./",
       "description": "Dev tools: Docker, prompts, code reflection",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
       "keywords": ["utilities", "docker", "containerization", "development"],
       "category": "productivity",
       "commands": [
@@ -37,14 +29,6 @@
       "name": "planning-tools",
       "source": "./",
       "description": "Advanced planning and thinking tools",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
       "keywords": ["planning", "thinking", "problem-solving", "analysis"],
       "category": "productivity",
       "commands": [
@@ -60,14 +44,6 @@
       "name": "parallel-execution",
       "source": "./",
       "description": "Execute tasks in parallel for efficiency",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
       "keywords": ["parallel", "execution", "performance", "efficiency"],
       "category": "productivity",
       "commands": [
@@ -80,65 +56,33 @@
       "name": "fullstack-developer",
       "source": "./",
       "description": "Full-stack development agent",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
       "keywords": ["fullstack", "development", "react", "nodejs", "database", "agent"],
       "category": "agents",
-      "agents": ["./agents/fullstack-developer/fullstack-developer.md"],
+      "agents": ["./agents/fullstack-developer.md"],
       "strict": false
     },
     {
       "name": "documentation-manager",
       "source": "./",
       "description": "Documentation specialist agent",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
       "keywords": ["documentation", "readme", "technical-writing", "agent"],
       "category": "agents",
-      "agents": ["./agents/documentation-manager/documentation-manager.md"],
+      "agents": ["./agents/documentation-manager.md"],
       "strict": false
     },
     {
       "name": "validation-gates",
       "source": "./",
       "description": "Testing and validation agent",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
       "keywords": ["testing", "validation", "quality", "agent"],
       "category": "agents",
-      "agents": ["./agents/validation-gates/validation-gates.md"],
+      "agents": ["./agents/validation-gates.md"],
       "strict": false
     },
     {
       "name": "tool-usage-logger",
       "source": "./",
       "description": "Hook for logging tool usage",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
       "keywords": ["logging", "monitoring", "debugging", "hook"],
       "category": "monitoring",
       "hooks": {
@@ -157,48 +101,140 @@
       "strict": false
     },
     {
-      "name": "mcp-essentials",
+      "name": "mcp-alphavantage",
       "source": "./",
-      "description": "MCP: Web fetch, time, IDE integration",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
-      "keywords": ["mcp", "fetch", "time", "ide"],
+      "description": "Stock market data",
+      "keywords": ["mcp", "stocks", "market-data", "finance"],
       "category": "mcp-servers",
       "mcpServers": {
-        "fetch": {
-          "command": "uvx",
-          "args": ["mcp-server-fetch"]
-        },
-        "time": {
-          "command": "uvx",
-          "args": ["mcp-server-time", "--local-timezone=Australia/Perth"]
-        },
-        "playwright": {
-          "command": "npx",
-          "args": ["@playwright/mcp@latest"]
+        "alphavantage": {
+          "type": "http",
+          "url": "https://mcp.alphavantage.co/mcp?apikey=${ALPHAVANTAGEAPIKEY}"
         }
       },
       "strict": false
     },
     {
-      "name": "mcp-ai-tools",
+      "name": "mcp-chrome-devtools",
       "source": "./",
-      "description": "MCP: AI tools (Serena, Gemini)",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
+      "description": "Chrome DevTools integration",
+      "keywords": ["mcp", "chrome", "devtools", "debugging"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "chrome-devtools": {
+          "command": "npx",
+          "args": ["chrome-devtools-mcp@latest"]
+        }
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
-      "keywords": ["mcp", "ai", "planning", "gemini"],
+      "strict": false
+    },
+    {
+      "name": "mcp-cloudflare-docs",
+      "source": "./",
+      "description": "Cloudflare documentation access",
+      "keywords": ["mcp", "cloudflare", "documentation", "docs"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "cloudflare-docs": {
+          "command": "npx",
+          "args": ["mcp-remote", "https://docs.mcp.cloudflare.com/sse"]
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-coingecko",
+      "source": "./",
+      "description": "Cryptocurrency market data",
+      "keywords": ["mcp", "cryptocurrency", "crypto", "market-data"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "coingecko_api": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@coingecko/coingecko-mcp",
+            "--client=claude-code",
+            "--resource=coins,global,search,simple*",
+            "--operation=read"
+          ],
+          "env": {
+            "COINGECKO_DEMO_API_KEY": "${COINGECKO_DEMO_API_KEY}",
+            "COINGECKO_ENVIRONMENT": "demo"
+          }
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-context7",
+      "source": "./",
+      "description": "Context-aware code understanding",
+      "keywords": ["mcp", "context", "code-analysis", "upstash"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "context7": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@upstash/context7-mcp",
+            "--api-key",
+            "${CONTEXT7_API_KEY}"
+          ]
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-currency-conversion",
+      "source": "./",
+      "description": "Currency exchange rates",
+      "keywords": ["mcp", "currency", "exchange", "forex"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "currency-conversion": {
+          "command": "npx",
+          "args": ["mcp-remote", "https://currency-mcp.wesbos.com/sse"]
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-fetch",
+      "source": "./",
+      "description": "Web content fetching",
+      "keywords": ["mcp", "fetch", "web", "http"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "fetch": {
+          "command": "uvx",
+          "args": ["mcp-server-fetch"]
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-firecrawl",
+      "source": "./",
+      "description": "Web crawling and scraping",
+      "keywords": ["mcp", "crawling", "scraping", "web"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "firecrawl": {
+          "command": "npx",
+          "args": ["-y", "firecrawl-mcp"],
+          "env": {
+            "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+          }
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-gemini-bridge",
+      "source": "./",
+      "description": "Gemini AI integration",
+      "keywords": ["mcp", "gemini", "ai", "google"],
       "category": "mcp-servers",
       "mcpServers": {
         "gemini-bridge": {
@@ -211,18 +247,102 @@
       "strict": false
     },
     {
-      "name": "mcp-data-sources",
+      "name": "mcp-google-workspace",
       "source": "./",
-      "description": "MCP: Weather, crypto, stocks, workspace APIs",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
+      "description": "Google Workspace integration",
+      "keywords": ["mcp", "google", "workspace", "gmail", "drive"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "google_workspace": {
+          "command": "uvx",
+          "args": ["workspace-mcp"],
+          "env": {
+            "GOOGLE_OAUTH_CLIENT_ID": "${GOOGLE_OAUTH_CLIENT_ID}",
+            "GOOGLE_OAUTH_CLIENT_SECRET": "${GOOGLE_OAUTH_CLIENT_SECRET}",
+            "OAUTHLIB_INSECURE_TRANSPORT": "1"
+          }
+        }
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
-      "keywords": ["mcp", "data", "api", "weather", "crypto", "stocks"],
+      "strict": false
+    },
+    {
+      "name": "mcp-microsoft-docs",
+      "source": "./",
+      "description": "Microsoft documentation access",
+      "keywords": ["mcp", "microsoft", "documentation", "docs"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "microsoft_docs": {
+          "type": "http",
+          "url": "https://learn.microsoft.com/api/mcp"
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-mikrotik",
+      "source": "./",
+      "description": "MikroTik router management",
+      "keywords": ["mcp", "mikrotik", "router", "network"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "mikrotik": {
+          "command": "uvx",
+          "args": [
+            "mcp-server-mikrotik",
+            "--host",
+            "${MIKROTIK_HOST}",
+            "--username",
+            "${MIKROTIK_USER}",
+            "--password",
+            "${MIKROTIK_PASSWORD}",
+            "--port",
+            "2200"
+          ]
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-n8n",
+      "source": "./",
+      "description": "n8n workflow automation",
+      "keywords": ["mcp", "n8n", "automation", "workflows"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "n8n-mcp": {
+          "command": "npx",
+          "args": ["n8n-mcp"],
+          "env": {
+            "MCP_MODE": "stdio",
+            "LOG_LEVEL": "error",
+            "DISABLE_CONSOLE_OUTPUT": "true",
+            "N8N_API_URL": "https://n8n.wookstar.com/",
+            "N8N_API_KEY": "${N8N_API_KEY}"
+          }
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-notion",
+      "source": "./",
+      "description": "Notion workspace integration",
+      "keywords": ["mcp", "notion", "workspace", "notes"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "notion": {
+          "type": "http",
+          "url": "https://mcp.notion.com/mcp"
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-open-meteo",
+      "source": "./",
+      "description": "Weather and climate data",
+      "keywords": ["mcp", "weather", "climate", "forecast"],
       "category": "mcp-servers",
       "mcpServers": {
         "open-meteo": {
@@ -237,84 +357,31 @@
             "OPEN_METEO_ENSEMBLE_API_URL": "https://ensemble-api.open-meteo.com",
             "OPEN_METEO_GEOCODING_API_URL": "https://geocoding-api.open-meteo.com"
           }
-        },
-        "currency-conversion": {
-          "command": "npx",
-          "args": ["mcp-remote", "https://currency-mcp.wesbos.com/sse"]
-        },
-        "coingecko_api": {
-          "command": "npx",
-          "args": [
-            "-y",
-            "@coingecko/coingecko-mcp",
-            "--client=claude-code",
-            "--resource=coins,global,search,simple*",
-            "--operation=read"
-          ],
-          "env": {
-            "COINGECKO_DEMO_API_KEY": "${COINGECKO_DEMO_API_KEY}",
-            "COINGECKO_ENVIRONMENT": "demo"
-          }
-        },
-        "alphavantage": {
-          "type": "http",
-          "url": "https://mcp.alphavantage.co/mcp?apikey=${ALPHAVANTAGEAPIKEY}"
-        },
-        "google_workspace": {
-          "command": "uvx",
-          "args": ["workspace-mcp"],
-          "env": {
-            "GOOGLE_OAUTH_CLIENT_ID": "${GOOGLE_OAUTH_CLIENT_ID}",
-            "GOOGLE_OAUTH_CLIENT_SECRET": "${GOOGLE_OAUTH_CLIENT_SECRET}",
-            "OAUTHLIB_INSECURE_TRANSPORT": "1"
-          }
-        },
-        "notion": {
-          "type": "http",
-          "url": "https://mcp.notion.com/mcp"
         }
       },
       "strict": false
     },
     {
-      "name": "mcp-dev-tools",
+      "name": "mcp-playwright",
       "source": "./",
-      "description": "MCP: DevTools, automation, network tools",
-      "version": "1.0.0",
-      "author": {
-        "name": "Henrik Soederlund",
-        "email": "whom-wealthy.2z@icloud.com"
-      },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
-      "repository": "https://github.com/henkisdabro/claudecode-marketplace",
-      "license": "MIT",
-      "keywords": ["mcp", "devtools", "automation", "network"],
+      "description": "Browser automation with Playwright",
+      "keywords": ["mcp", "playwright", "browser", "automation"],
       "category": "mcp-servers",
       "mcpServers": {
-        "context7": {
+        "playwright": {
           "command": "npx",
-          "args": [
-            "-y",
-            "@upstash/context7-mcp",
-            "--api-key",
-            "${CONTEXT7_API_KEY}"
-          ]
-        },
-        "firecrawl": {
-          "command": "npx",
-          "args": ["-y", "firecrawl-mcp"],
-          "env": {
-            "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
-          }
-        },
-        "cloudflare-docs": {
-          "command": "npx",
-          "args": ["mcp-remote", "https://docs.mcp.cloudflare.com/sse"]
-        },
-        "microsoft_docs": {
-          "type": "http",
-          "url": "https://learn.microsoft.com/api/mcp"
-        },
+          "args": ["@playwright/mcp@latest"]
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-serena",
+      "source": "./",
+      "description": "AI planning and task management",
+      "keywords": ["mcp", "ai", "planning", "tasks"],
+      "category": "mcp-servers",
+      "mcpServers": {
         "serena": {
           "type": "stdio",
           "command": "uvx",
@@ -331,35 +398,20 @@
             "FALSE"
           ],
           "env": {}
-        },
-        "chrome-devtools": {
-          "command": "npx",
-          "args": ["chrome-devtools-mcp@latest"]
-        },
-        "n8n-mcp": {
-          "command": "npx",
-          "args": ["n8n-mcp"],
-          "env": {
-            "MCP_MODE": "stdio",
-            "LOG_LEVEL": "error",
-            "DISABLE_CONSOLE_OUTPUT": "true",
-            "N8N_API_URL": "https://n8n.wookstar.com/",
-            "N8N_API_KEY": "${N8N_API_KEY}"
-          }
-        },
-        "mikrotik": {
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-time",
+      "source": "./",
+      "description": "Time and timezone utilities",
+      "keywords": ["mcp", "time", "timezone", "datetime"],
+      "category": "mcp-servers",
+      "mcpServers": {
+        "time": {
           "command": "uvx",
-          "args": [
-            "mcp-server-mikrotik",
-            "--host",
-            "${MIKROTIK_HOST}",
-            "--username",
-            "${MIKROTIK_USER}",
-            "--password",
-            "${MIKROTIK_PASSWORD}",
-            "--port",
-            "2200"
-          ]
+          "args": ["mcp-server-time", "--local-timezone=Australia/Perth"]
         }
       },
       "strict": false
