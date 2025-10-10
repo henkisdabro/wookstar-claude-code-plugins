@@ -1,0 +1,14 @@
+{
+  "name": "fullstack-developer",
+  "version": "1.0.0",
+  "description": "Full-stack development specialist agent covering frontend, backend, and database technologies",
+  "author": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "license": "MIT",
+  "keywords": ["fullstack", "development", "react", "nodejs", "database", "agent"],
+  "category": "agents",
+  "agents": ["./fullstack-developer.md"]
+}

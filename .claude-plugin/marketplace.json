@@ -1,0 +1,355 @@
+{
+  "name": "claudecode-marketplace",
+  "owner": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "metadata": {
+    "description": "A comprehensive collection of Claude Code plugins including development utilities, planning tools, agents, hooks, and MCP server configurations",
+    "version": "1.0.0",
+    "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "development-utilities",
+      "source": "./plugins/development-utilities",
+      "description": "Essential development utilities including containerization, prompt writing, and code reflection tools",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "productivity",
+      "keywords": ["utilities", "docker", "containerization", "development"],
+      "license": "MIT",
+      "commands": [
+        "${CLAUDE_PLUGIN_ROOT}/commands/containerize.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/prompt_writer.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/primer.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/reflection.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/create-agentsmd-symlink.md"
+      ],
+      "strict": false
+    },
+    {
+      "name": "planning-tools",
+      "source": "./plugins/planning-tools",
+      "description": "Advanced planning and thinking tools for complex problem-solving and systematic planning",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "productivity",
+      "keywords": ["planning", "thinking", "problem-solving", "analysis"],
+      "license": "MIT",
+      "commands": [
+        "${CLAUDE_PLUGIN_ROOT}/commands/planning.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/ultra-think.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/generate-prp.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/execute-prp.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/infinite.md"
+      ],
+      "strict": false
+    },
+    {
+      "name": "parallel-execution",
+      "source": "./plugins/parallel-execution",
+      "description": "Tools for preparing and executing tasks in parallel for improved efficiency",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "productivity",
+      "keywords": ["parallel", "execution", "performance", "efficiency"],
+      "license": "MIT",
+      "commands": [
+        "${CLAUDE_PLUGIN_ROOT}/commands/prep-parallel.md",
+        "${CLAUDE_PLUGIN_ROOT}/commands/execute-parallel.md"
+      ],
+      "strict": false
+    },
+    {
+      "name": "fullstack-developer",
+      "source": "./plugins/agents/fullstack-developer",
+      "description": "Full-stack development specialist agent covering frontend, backend, and database technologies",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "agents",
+      "keywords": ["fullstack", "development", "react", "nodejs", "database", "agent"],
+      "license": "MIT",
+      "agents": ["${CLAUDE_PLUGIN_ROOT}/fullstack-developer.md"],
+      "strict": false
+    },
+    {
+      "name": "documentation-manager",
+      "source": "./plugins/agents/documentation-manager",
+      "description": "Expert documentation specialist for maintaining comprehensive technical documentation",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "agents",
+      "keywords": ["documentation", "readme", "technical-writing", "agent"],
+      "license": "MIT",
+      "agents": ["${CLAUDE_PLUGIN_ROOT}/documentation-manager.md"],
+      "strict": false
+    },
+    {
+      "name": "validation-gates",
+      "source": "./plugins/agents/validation-gates",
+      "description": "Testing and validation specialist that proactively runs tests and ensures quality gates are met",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "agents",
+      "keywords": ["testing", "validation", "quality", "agent"],
+      "license": "MIT",
+      "agents": ["${CLAUDE_PLUGIN_ROOT}/validation-gates.md"],
+      "strict": false
+    },
+    {
+      "name": "tool-usage-logger",
+      "source": "./plugins/hooks/tool-logger",
+      "description": "PostToolUse hook that logs all tool usage for tracking and debugging purposes",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "monitoring",
+      "keywords": ["logging", "monitoring", "debugging", "hook"],
+      "license": "MIT",
+      "hooks": {
+        "PostToolUse": [
+          {
+            "matcher": "*",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "${CLAUDE_PLUGIN_ROOT}/log-tool-usage.sh"
+              }
+            ]
+          }
+        ]
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-essentials",
+      "source": "./plugins/mcp-collections/essentials",
+      "description": "Essential MCP servers for web fetching, time operations, and IDE integration",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "mcp-servers",
+      "keywords": ["mcp", "fetch", "time", "ide"],
+      "license": "MIT",
+      "mcpServers": {
+        "fetch": {
+          "command": "uvx",
+          "args": ["mcp-server-fetch"]
+        },
+        "time": {
+          "command": "uvx",
+          "args": ["mcp-server-time", "--local-timezone=Australia/Perth"]
+        },
+        "playwright": {
+          "command": "npx",
+          "args": ["@playwright/mcp@latest"]
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-ai-tools",
+      "source": "./plugins/mcp-collections/ai-tools",
+      "description": "AI-powered MCP servers including Serena planning assistant and Gemini bridge",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "mcp-servers",
+      "keywords": ["mcp", "ai", "planning", "gemini"],
+      "license": "MIT",
+      "mcpServers": {
+        "serena": {
+          "type": "stdio",
+          "command": "uvx",
+          "args": [
+            "--from",
+            "git+https://github.com/oraios/serena",
+            "serena",
+            "start-mcp-server",
+            "--context",
+            "ide-assistant",
+            "--mode",
+            "planning",
+            "--enable-web-dashboard",
+            "FALSE"
+          ],
+          "env": {}
+        },
+        "gemini-bridge": {
+          "type": "stdio",
+          "command": "uvx",
+          "args": ["gemini-bridge"],
+          "env": {}
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-data-sources",
+      "source": "./plugins/mcp-collections/data-sources",
+      "description": "Data and API MCP servers for weather, crypto, stocks, and workspace integration",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "mcp-servers",
+      "keywords": ["mcp", "data", "api", "weather", "crypto", "stocks"],
+      "license": "MIT",
+      "mcpServers": {
+        "open-meteo": {
+          "command": "npx",
+          "args": ["open-meteo-mcp-server"],
+          "env": {
+            "OPEN_METEO_API_URL": "https://api.open-meteo.com",
+            "OPEN_METEO_AIR_QUALITY_API_URL": "https://air-quality-api.open-meteo.com",
+            "OPEN_METEO_MARINE_API_URL": "https://marine-api.open-meteo.com",
+            "OPEN_METEO_ARCHIVE_API_URL": "https://archive-api.open-meteo.com",
+            "OPEN_METEO_SEASONAL_API_URL": "https://seasonal-api.open-meteo.com",
+            "OPEN_METEO_ENSEMBLE_API_URL": "https://ensemble-api.open-meteo.com",
+            "OPEN_METEO_GEOCODING_API_URL": "https://geocoding-api.open-meteo.com"
+          }
+        },
+        "currency-conversion": {
+          "command": "npx",
+          "args": ["mcp-remote", "https://currency-mcp.wesbos.com/sse"]
+        },
+        "coingecko_api": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@coingecko/coingecko-mcp",
+            "--client=claude-code",
+            "--resource=coins,global,search,simple*",
+            "--operation=read"
+          ],
+          "env": {
+            "COINGECKO_DEMO_API_KEY": "${COINGECKO_DEMO_API_KEY}",
+            "COINGECKO_ENVIRONMENT": "demo"
+          }
+        },
+        "alphavantage": {
+          "type": "http",
+          "url": "https://mcp.alphavantage.co/mcp?apikey=${ALPHAVANTAGEAPIKEY}"
+        },
+        "context7": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@upstash/context7-mcp",
+            "--api-key",
+            "${CONTEXT7_API_KEY}"
+          ]
+        },
+        "firecrawl": {
+          "command": "npx",
+          "args": ["-y", "firecrawl-mcp"],
+          "env": {
+            "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+          }
+        },
+        "google_workspace": {
+          "command": "uvx",
+          "args": ["workspace-mcp"],
+          "env": {
+            "GOOGLE_OAUTH_CLIENT_ID": "${GOOGLE_OAUTH_CLIENT_ID}",
+            "GOOGLE_OAUTH_CLIENT_SECRET": "${GOOGLE_OAUTH_CLIENT_SECRET}",
+            "OAUTHLIB_INSECURE_TRANSPORT": "1"
+          }
+        },
+        "notion": {
+          "type": "http",
+          "url": "https://mcp.notion.com/mcp"
+        },
+        "cloudflare-docs": {
+          "command": "npx",
+          "args": ["mcp-remote", "https://docs.mcp.cloudflare.com/sse"]
+        },
+        "microsoft_docs": {
+          "type": "http",
+          "url": "https://learn.microsoft.com/api/mcp"
+        }
+      },
+      "strict": false
+    },
+    {
+      "name": "mcp-dev-tools",
+      "source": "./plugins/mcp-collections/dev-tools",
+      "description": "Development and automation tools including Chrome DevTools, n8n, and network management",
+      "version": "1.0.0",
+      "author": {
+        "name": "Henrik Soederlund",
+        "email": "whom-wealthy.2z@icloud.com"
+      },
+      "category": "mcp-servers",
+      "keywords": ["mcp", "devtools", "automation", "network"],
+      "license": "MIT",
+      "mcpServers": {
+        "chrome-devtools": {
+          "command": "npx",
+          "args": ["chrome-devtools-mcp@latest"]
+        },
+        "n8n-mcp": {
+          "command": "npx",
+          "args": ["n8n-mcp"],
+          "env": {
+            "MCP_MODE": "stdio",
+            "LOG_LEVEL": "error",
+            "DISABLE_CONSOLE_OUTPUT": "true",
+            "N8N_API_URL": "https://n8n.wookstar.com/",
+            "N8N_API_KEY": "${N8N_API_KEY}"
+          }
+        },
+        "mikrotik": {
+          "command": "uvx",
+          "args": [
+            "mcp-server-mikrotik",
+            "--host",
+            "${MIKROTIK_HOST}",
+            "--username",
+            "${MIKROTIK_USER}",
+            "--password",
+            "${MIKROTIK_PASSWORD}",
+            "--port",
+            "2200"
+          ]
+        },
+        "mcphub": {
+          "type": "http",
+          "url": "https://mcphub.wookstar.com/mcp",
+          "headers": {
+            "CF-Access-Client-Id": "${CF_ACCESS_CLIENT_ID}",
+            "CF-Access-Client-Secret": "${CF_ACCESS_CLIENT_SECRET}"
+          }
+        }
+      },
+      "strict": false
+    }
+  ]
+}

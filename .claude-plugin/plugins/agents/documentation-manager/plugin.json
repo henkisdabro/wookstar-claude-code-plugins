@@ -1,0 +1,14 @@
+{
+  "name": "documentation-manager",
+  "version": "1.0.0",
+  "description": "Expert documentation specialist for maintaining comprehensive technical documentation",
+  "author": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "license": "MIT",
+  "keywords": ["documentation", "readme", "technical-writing", "agent"],
+  "category": "agents",
+  "agents": ["./documentation-manager.md"]
+}

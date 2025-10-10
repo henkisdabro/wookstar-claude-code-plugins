@@ -1,0 +1,27 @@
+{
+  "name": "mcp-essentials",
+  "version": "1.0.0",
+  "description": "Essential MCP servers for web fetching, time operations, and IDE integration",
+  "author": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "license": "MIT",
+  "keywords": ["mcp", "fetch", "time", "ide"],
+  "category": "mcp-servers",
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    },
+    "time": {
+      "command": "uvx",
+      "args": ["mcp-server-time", "--local-timezone=Australia/Perth"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "tool-usage-logger",
+  "version": "1.0.0",
+  "description": "PostToolUse hook that logs all tool usage for tracking and debugging purposes",
+  "author": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "license": "MIT",
+  "keywords": ["logging", "monitoring", "debugging", "hook"],
+  "category": "monitoring",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/log-tool-usage.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "mcp-ai-tools",
+  "version": "1.0.0",
+  "description": "AI-powered MCP servers including Serena planning assistant and Gemini bridge",
+  "author": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "license": "MIT",
+  "keywords": ["mcp", "ai", "planning", "gemini"],
+  "category": "mcp-servers",
+  "mcpServers": {
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--mode",
+        "planning",
+        "--enable-web-dashboard",
+        "FALSE"
+      ],
+      "env": {}
+    },
+    "gemini-bridge": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["gemini-bridge"],
+      "env": {}
+    }
+  }
+}

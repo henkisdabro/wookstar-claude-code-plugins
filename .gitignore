@@ -1,0 +1,39 @@
+# Development
+*.local
+.cache/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+.tscache/
+
+# ESLint
+.eslintcache
+
+# Editor directories and files
+# Keep useful VS Code settings for team, ignore personal ones
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Environment variables
+.env*
+!.env.example
+
+# Temporary files
+*.tmp
+*.temp
+
+# Claude Code Files
+.mcp.json
+.claude

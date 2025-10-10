@@ -1,0 +1,14 @@
+{
+  "name": "validation-gates",
+  "version": "1.0.0",
+  "description": "Testing and validation specialist that proactively runs tests and ensures quality gates are met",
+  "author": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "license": "MIT",
+  "keywords": ["testing", "validation", "quality", "agent"],
+  "category": "agents",
+  "agents": ["./validation-gates.md"]
+}
