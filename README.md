@@ -1,102 +1,14 @@
 # Claude Code Marketplace
 
-A comprehensive collection of Claude Code plugins including development utilities, planning tools, specialized agents, hooks, and MCP server configurations.
+A curated collection of plugins, agents, slash commands, hooks, and MCP server configurations for [Claude Code](https://claude.ai/code).
 
-## Overview
+## What is this?
 
-This marketplace provides a curated collection of plugins designed to enhance your Claude Code development experience. All plugins are organized by category and can be installed individually or as complete collections.
+This repository is a **Claude Code Plugin Marketplace** - a centralized registry of productivity tools, specialized AI agents, and integrations that extend Claude Code's capabilities. Whether you're a solo developer or part of a team, this marketplace provides battle-tested plugins to enhance your development workflow.
 
-## Available Plugins
+## Quick Start
 
-### Development Utilities
-
-**development-utilities** - Essential tools for everyday development tasks
-
-- **containerize** - Containerize applications with optimized Docker configuration, security, and multi-stage builds
-- **prompt_writer** - Advanced prompt engineering and writing assistant
-- **primer** - Quick project initialization and setup
-- **reflection** - Code analysis and reflection tools
-- **create-agentsmd-symlink** - Agent configuration management
-
-### Planning Tools
-
-**planning-tools** - Advanced planning and systematic thinking tools
-
-- **planning** - Structured planning workflows
-- **ultra-think** - Deep analytical thinking and problem decomposition
-- **generate-prp** - Progressive Refinement Plan generation
-- **execute-prp** - Execute Progressive Refinement Plans
-- **infinite** - Infinite context planning mode
-
-### Parallel Execution
-
-**parallel-execution** - Tools for efficient parallel task execution
-
-- **prep-parallel** - Prepare tasks for parallel execution
-- **execute-parallel** - Execute multiple tasks in parallel
-
-### Specialized Agents
-
-#### fullstack-developer
-
-Full-stack development specialist covering frontend, backend, and database technologies. Expertise in React, Node.js, TypeScript, and modern web development practices.
-
-#### documentation-manager
-
-Expert documentation specialist for maintaining comprehensive technical documentation, README files, and API documentation.
-
-#### validation-gates
-
-Testing and validation specialist that proactively runs tests, validates code changes, and ensures quality gates are met.
-
-### Hooks
-
-**tool-usage-logger** - PostToolUse hook that logs all tool usage for tracking and debugging purposes. Creates audit logs in `.claude/logs/tool-usage.log`.
-
-### MCP Server Collections
-
-#### mcp-essentials
-
-Essential MCP servers for core functionality:
-
-- **fetch** - Web content fetching
-- **time** - Time and timezone operations (configured for Australia/Perth)
-- **playwright** - Browser automation and testing
-
-#### mcp-ai-tools
-
-AI-powered MCP servers:
-
-- **serena** - AI planning assistant
-- **gemini-bridge** - Gemini API integration
-
-#### mcp-data-sources
-
-Data and API integrations:
-
-- **open-meteo** - Weather data and forecasts
-- **currency-conversion** - Real-time currency conversion
-- **coingecko_api** - Cryptocurrency data
-- **alphavantage** - Stock market data
-- **context7** - Context management
-- **firecrawl** - Advanced web scraping
-- **google_workspace** - Google Workspace integration
-- **notion** - Notion API integration
-- **cloudflare-docs** - Cloudflare documentation
-- **microsoft_docs** - Microsoft documentation
-
-#### mcp-dev-tools
-
-Development and automation tools:
-
-- **chrome-devtools** - Chrome DevTools integration
-- **n8n-mcp** - n8n workflow automation
-- **mikrotik** - MikroTik router management
-- **mcphub** - MCP hub integration
-
-## Installation
-
-### Add the Marketplace
+### Installation
 
 Add this marketplace to your Claude Code installation:
 
@@ -104,31 +16,62 @@ Add this marketplace to your Claude Code installation:
 /plugin marketplace add henkisdabro/claudecode-marketplace
 ```
 
-Or for local development:
+### Browse & Install Plugins
 
 ```bash
-/plugin marketplace add /path/to/claudecode-marketplace
-```
+# Interactive browser
+/plugin
 
-### Install Plugins
-
-Install individual plugins:
-
-```bash
+# Install specific plugins
 /plugin install development-utilities@claudecode-marketplace
 /plugin install planning-tools@claudecode-marketplace
-/plugin install fullstack-developer@claudecode-marketplace
 ```
 
-Or browse and install interactively:
+## What's Included
 
-```bash
-/plugin
-```
+### 🛠️ Development Utilities (5 commands)
 
-### Team Configuration
+- **containerize** - Production-ready Docker configuration with multi-stage builds
+- **prompt_writer** - Advanced prompt engineering assistant
+- **primer** - Quick project initialization
+- **reflection** - Code analysis and improvement suggestions
+- **create-agentsmd-symlink** - Agent configuration management
 
-Configure automatic marketplace and plugin installation for your team by adding to `.claude/settings.json`:
+### 🧠 Planning Tools (5 commands)
+
+- **ultra-think** - Deep analytical thinking for complex problems
+- **planning** - Structured planning workflows
+- **generate-prp** - Progressive Refinement Plan generation
+- **execute-prp** - Execute Progressive Refinement Plans
+- **infinite** - Extended context planning mode
+
+### ⚡ Parallel Execution (2 commands)
+
+- **prep-parallel** - Prepare tasks for parallel execution
+- **execute-parallel** - Execute multiple tasks simultaneously
+
+### 🤖 Specialized Agents (3 agents)
+
+- **fullstack-developer** - Full-stack specialist (React, Node.js, TypeScript, databases)
+- **documentation-manager** - Technical documentation expert
+- **validation-gates** - Testing and quality assurance specialist
+
+### 🪝 Hooks (1 hook)
+
+- **tool-usage-logger** - Audit trail for all tool usage
+
+### 🔌 MCP Server Collections (19 servers)
+
+Four curated collections of MCP servers:
+
+- **essentials** - Core functionality (fetch, time, playwright)
+- **ai-tools** - AI integrations (Serena, Gemini)
+- **data-sources** - APIs (weather, crypto, stocks, workspace)
+- **dev-tools** - Automation (Chrome DevTools, n8n, MikroTik)
+
+## Team Setup
+
+Enable automatic plugin installation for your team by adding to `.claude/settings.json`:
 
 ```json
 {
@@ -148,32 +91,26 @@ Configure automatic marketplace and plugin installation for your team by adding 
 }
 ```
 
-## Plugin Categories
-
-- **productivity** - Tools that enhance development workflow and efficiency
-- **agents** - Specialized AI agents for specific development tasks
-- **monitoring** - Logging and debugging tools
-- **mcp-servers** - MCP server integrations for extended functionality
+When team members trust the repository, plugins install automatically.
 
 ## Environment Variables
 
-Some MCP servers require environment variables. Create a `.env` file in your project root:
+Some MCP servers require API keys. Create a `.env` file in your project root:
 
 ```bash
 # API Keys
-COINGECKO_DEMO_API_KEY=your_key_here
-ALPHAVANTAGEAPIKEY=your_key_here
-CONTEXT7_API_KEY=your_key_here
-FIRECRAWL_API_KEY=your_key_here
-N8N_API_KEY=your_key_here
+COINGECKO_DEMO_API_KEY=your_key
+ALPHAVANTAGEAPIKEY=your_key
+FIRECRAWL_API_KEY=your_key
+N8N_API_KEY=your_key
 
 # OAuth Credentials
 GOOGLE_OAUTH_CLIENT_ID=your_client_id
 GOOGLE_OAUTH_CLIENT_SECRET=your_client_secret
 
 # Network Configuration
-MIKROTIK_HOST=your_router_ip
-MIKROTIK_USER=your_username
+MIKROTIK_HOST=192.168.88.1
+MIKROTIK_USER=admin
 MIKROTIK_PASSWORD=your_password
 
 # Cloudflare Access
@@ -181,66 +118,74 @@ CF_ACCESS_CLIENT_ID=your_client_id
 CF_ACCESS_CLIENT_SECRET=your_client_secret
 ```
 
-## Plugin Structure
+## Documentation
 
-Each plugin follows the standard Claude Code plugin structure:
+Comprehensive documentation is available in the `.claude-plugin/` directory:
 
-```
-plugin-name/
-├── plugin.json          # Plugin manifest
-├── commands/            # Slash commands (optional)
-├── agents/              # Agent definitions (optional)
-├── hooks/               # Hook scripts (optional)
-└── README.md           # Plugin documentation (optional)
-```
+- **[README.md](.claude-plugin/README.md)** - User-facing plugin catalog and installation guide
+- **[ARCHITECTURE.md](.claude-plugin/ARCHITECTURE.md)** - Design decisions and marketplace architecture
+- **[USAGE.md](.claude-plugin/USAGE.md)** - Practical examples and workflows
 
-## Development
+## Example Workflows
 
-### Testing Locally
-
-Test the marketplace locally before distribution:
+### Setting Up a New Project
 
 ```bash
-/plugin marketplace add ./claudecode-marketplace
 /plugin install development-utilities@claudecode-marketplace
+/containerize --node --multi-stage
+# Fullstack developer agent helps build features
+# Documentation manager keeps docs updated
 ```
 
-### Validation
-
-Validate the marketplace structure:
+### Complex Planning Session
 
 ```bash
-claude plugin validate .claude-plugin
+/plugin install planning-tools@claudecode-marketplace
+/ultra-think "Design a real-time collaboration system"
+/generate-prp
+/execute-prp
 ```
 
-## License
+### Quality Assurance Pipeline
 
-MIT License - See individual plugin manifests for specific licensing information.
+```bash
+/plugin install validation-gates@claudecode-marketplace
+# Validation agent automatically runs tests after changes
+# Tool logger creates audit trail
+```
 
-## Author
+## Repository Structure
 
-Henrik Soederlund
-
-- Email: whom-wealthy.2z@icloud.com
-- GitHub: [@henkisdabro](https://github.com/henkisdabro)
-- Website: https://www.henriksoderlund.com
+```
+claudecode-marketplace/
+├── README.md              # This file (GitHub-facing overview)
+├── CLAUDE.md              # Instructions for Claude Code instances
+└── .claude-plugin/
+    ├── README.md          # Marketplace user documentation
+    ├── ARCHITECTURE.md    # Architecture and design decisions
+    ├── USAGE.md           # Usage examples and workflows
+    ├── marketplace.json   # Central plugin registry
+    └── plugins/           # Plugin packages
+        ├── development-utilities/
+        ├── planning-tools/
+        ├── parallel-execution/
+        ├── agents/
+        ├── hooks/
+        └── mcp-collections/
+```
 
 ## Contributing
 
-Contributions are welcome! Please ensure:
+Contributions welcome! To add a plugin:
 
 1. Follow the existing plugin structure
-2. Include proper metadata in plugin.json
-3. Test plugins locally before submitting
-4. Update marketplace.json with new plugins
-5. Follow semantic versioning
+2. Include complete metadata in `plugin.json`
+3. Test locally with `/plugin marketplace add ./claudecode-marketplace`
+4. Update `marketplace.json` with your plugin entry
+5. Use semantic versioning
+6. Submit a pull request
 
-## Support
-
-For issues, questions, or feature requests:
-
-- Create an issue on GitHub
-- Email: whom-wealthy.2z@icloud.com
+See [ARCHITECTURE.md](.claude-plugin/ARCHITECTURE.md) for detailed guidelines.
 
 ## Version History
 
@@ -251,9 +196,34 @@ For issues, questions, or feature requests:
 - 19 MCP server integrations
 - Comprehensive documentation
 
-## See Also
+## License
+
+MIT License
+
+## Author
+
+**Henrik Soederlund**
+
+- Email: whom-wealthy.2z@icloud.com
+- GitHub: [@henkisdabro](https://github.com/henkisdabro)
+- Website: [henriksoderlund.com](https://www.henriksoderlund.com)
+
+## Resources
 
 - [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code)
 - [Plugin Development Guide](https://docs.claude.com/en/docs/claude-code/plugins)
 - [Plugin Marketplaces Guide](https://docs.claude.com/en/docs/claude-code/plugin-marketplaces)
 - [MCP Servers](https://github.com/modelcontextprotocol/servers)
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/henkisdabro/claudecode-marketplace/issues)
+- **Email**: whom-wealthy.2z@icloud.com
+
+---
+
+**Ready to supercharge your Claude Code workflow?**
+
+```bash
+/plugin marketplace add henkisdabro/claudecode-marketplace
+```
