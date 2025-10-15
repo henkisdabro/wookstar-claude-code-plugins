@@ -115,11 +115,18 @@ Plugins that bundle MCP server configurations. No files needed - configuration l
 **marketplace.json example:**
 ```json
 {
-  "name": "mcp-essentials",
-  "source": "./",
+  "name": "mcp-fetch",
+  "source": "./.claude-plugin",
+  "description": "Web content fetching",
+  "keywords": ["mcp", "fetch", "web", "http"],
+  "category": "mcpServers",
   "mcpServers": {
-    "fetch": {"command": "uvx", "args": ["mcp-server-fetch"]}
-  }
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    }
+  },
+  "strict": false
 }
 ```
 

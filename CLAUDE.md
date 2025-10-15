@@ -124,16 +124,16 @@ The single source of truth for the marketplace. Contains:
 **Key Design Decision:** Uses `strict: false` which means plugins don't need individual `plugin.json` files if the marketplace.json entry is complete. This reduces duplication and simplifies the structure.
 
 **Path Resolution:**
-- All plugins use `"source": "./"` which points to the `.claude-plugin/` directory (where marketplace.json is located)
+- All plugins use `"source": "./.claude-plugin"` which points to the `.claude-plugin/` directory relative to the marketplace root
 - All file paths in plugin configurations are relative to this source directory
-- Example: `"./commands/containerize.md"` resolves to `.claude-plugin/commands/containerize.md`
+- Example: With `"source": "./.claude-plugin"`, the path `"./commands/containerize.md"` resolves to `.claude-plugin/commands/containerize.md`
 - Environment variables: Use `${VAR_NAME}` syntax for user-provided environment variables
 
 ## Adding New Plugins
 
 ### Key Path Resolution Rules
 
-1. **Source Directory:** All plugins use `"source": "./"` which means the `.claude-plugin/` directory
+1. **Source Directory:** All plugins use `"source": "./.claude-plugin"` which points to the `.claude-plugin/` directory relative to the marketplace root
 2. **File Paths:** All paths are relative to the source (e.g., `"./commands/foo.md"` → `.claude-plugin/commands/foo.md`)
 3. **No plugin.json Required:** With `strict: false`, all metadata lives in marketplace.json
 4. **Flat Structure:** All commands, agents, and hooks live directly under `.claude-plugin/`
@@ -146,10 +146,10 @@ The single source of truth for the marketplace. Contains:
 ```json
 {
   "name": "my-plugin",
-  "source": "./",
+  "source": "./.claude-plugin",
   "description": "Plugin description",
   "keywords": ["keyword1", "keyword2"],
-  "category": "productivity",
+  "category": "commands",
   "commands": [
     "./commands/<command-name>.md"
   ],
@@ -167,7 +167,7 @@ The single source of truth for the marketplace. Contains:
 ```json
 {
   "name": "my-agent",
-  "source": "./",
+  "source": "./.claude-plugin",
   "description": "Agent description",
   "category": "agents",
   "agents": ["./agents/<agent-name>/<agent-name>.md"],
@@ -185,9 +185,9 @@ The single source of truth for the marketplace. Contains:
 ```json
 {
   "name": "my-hook",
-  "source": "./",
+  "source": "./.claude-plugin",
   "description": "Hook description",
-  "category": "monitoring",
+  "category": "hooks",
   "hooks": {
     "PostToolUse": [
       {
@@ -214,9 +214,9 @@ No files needed - configuration lives entirely in marketplace.json:
 ```json
 {
   "name": "mcp-my-collection",
-  "source": "./",
+  "source": "./.claude-plugin",
   "description": "MCP server collection description",
-  "category": "mcp-servers",
+  "category": "mcpServers",
   "mcpServers": {
     "server-name": {
       "command": "uvx",

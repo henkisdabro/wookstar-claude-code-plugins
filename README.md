@@ -22,26 +22,33 @@ After adding the marketplace, install plugins:
 # Development utilities
 /plugin install development-utilities@claudecode-marketplace
 
-# Planning tools
-/plugin install planning-tools@claudecode-marketplace
+# Essential plugins
+/plugin install strategic-planning@claudecode-marketplace
+/plugin install fullstack-developer@claudecode-marketplace
 
-# MCP server collections
-/plugin install mcp-essentials@claudecode-marketplace
+# Essential MCP servers
+/plugin install mcp-fetch@claudecode-marketplace
+/plugin install mcp-time@claudecode-marketplace
 ```
 
-## Available Plugins
+## Available Plugin Categories
 
-- **development-utilities** - Docker containerization, prompt writing, code reflection
-- **planning-tools** - Advanced planning and systematic problem-solving
+### Commands
+- **project-onboarding** - Project initialization and context setup
+- **prompt-engineering** - Claude Code prompt and instruction optimization
+- **infrastructure-tools** - Application containerization and Docker optimization
+- **strategic-planning** - Feature planning and deep problem analysis
+- **prp-workflow** - PRP-based feature development workflow
+- **experimental-workflows** - Advanced infinite agentic loop
 - **parallel-execution** - Parallel task execution tools
+
+### Agents
 - **fullstack-developer** - Full-stack development agent
 - **documentation-manager** - Documentation specialist agent
 - **validation-gates** - Testing and validation agent
-- **tool-usage-logger** - Tool usage monitoring hook
-- **mcp-essentials** - Essential MCP servers (fetch, time, playwright)
-- **mcp-ai-tools** - AI-powered MCP servers (Serena, Gemini)
-- **mcp-data-sources** - Data and API MCP servers
-- **mcp-dev-tools** - Development tools MCP servers
+
+### MCP Servers
+20+ individual MCP servers for AI, data APIs, documentation, and development tools. See `.claude-plugin/README.md` for full list.
 
 ## License
 

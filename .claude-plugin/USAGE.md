@@ -97,8 +97,7 @@ Create `.claude/settings.json`:
     "planning-tools@claudecode-marketplace",
     "fullstack-developer@claudecode-marketplace",
     "documentation-manager@claudecode-marketplace",
-    "validation-gates@claudecode-marketplace",
-    "tool-usage-logger@claudecode-marketplace"
+    "validation-gates@claudecode-marketplace"
   ]
 }
 ```
@@ -114,7 +113,6 @@ When team members trust the repository in Claude Code, plugins are automatically
 ```bash
 # 1. Install validation tools
 /plugin install validation-gates@claudecode-marketplace
-/plugin install tool-usage-logger@claudecode-marketplace
 
 # 2. The validation-gates agent automatically:
 #    - Runs tests after code changes
@@ -130,8 +128,11 @@ cat .claude/logs/tool-usage.log
 **Scenario:** Building a dashboard with multiple data sources
 
 ```bash
-# 1. Install MCP data sources
-/plugin install mcp-data-sources@claudecode-marketplace
+# 1. Install individual MCP data servers you need
+/plugin install mcp-coingecko@claudecode-marketplace
+/plugin install mcp-alphavantage@claudecode-marketplace
+/plugin install mcp-open-meteo@claudecode-marketplace
+/plugin install mcp-currency-conversion@claudecode-marketplace
 
 # 2. Set up environment variables
 cat > .env << EOF
@@ -423,8 +424,10 @@ bash .claude-plugin/hooks/tool-logger/log-tool-usage.sh
 cp .env.example .env
 # Edit .env with your credentials
 
-# Then install MCP plugins
-/plugin install mcp-data-sources@claudecode-marketplace
+# Then install individual MCP servers you need
+/plugin install mcp-coingecko@claudecode-marketplace
+/plugin install mcp-alphavantage@claudecode-marketplace
+/plugin install mcp-firecrawl@claudecode-marketplace
 ```
 
 ### 3. Use Version Pinning for Teams
@@ -510,10 +513,14 @@ touch .claude-plugin/commands/my-command.md
 ### 1. Selective MCP Server Installation
 
 ```bash
-# Don't install all MCP collections
-# Install only what you need
-/plugin install mcp-essentials@claudecode-marketplace  # Always useful
-/plugin install mcp-data-sources@claudecode-marketplace  # If needed
+# Install only the MCP servers you need
+# Core utilities (recommended for most projects)
+/plugin install mcp-fetch@claudecode-marketplace
+/plugin install mcp-time@claudecode-marketplace
+
+# Data sources (install as needed)
+/plugin install mcp-open-meteo@claudecode-marketplace
+/plugin install mcp-currency-conversion@claudecode-marketplace
 ```
 
 ### 2. Lazy Loading

@@ -297,107 +297,53 @@ Testing and quality assurance specialist. Proactively ensures code quality and r
 
 ---
 
-## Hooks
+## MCP Servers
 
-### Tool Usage Logger
+MCP (Model Context Protocol) servers extend Claude Code with external data sources and integrations. Each server is installed individually.
 
-**Plugin Name:** `tool-usage-logger`
+### Core Utilities
 
-PostToolUse hook that creates an audit trail of all tool usage for tracking and debugging.
+Essential servers for most projects:
 
-**What it does:**
+- **mcp-fetch** - Web content fetching and scraping
+- **mcp-time** - Time and timezone operations (configured for Australia/Perth)
+- **mcp-playwright** - Browser automation and testing
 
-- Logs every tool invocation
-- Records tool parameters
-- Timestamps all actions
-- Creates searchable audit trail
+### AI & Planning
 
-**Log location:** `.claude/logs/tool-usage.log`
+AI-powered assistants and integrations:
 
-**Use cases:**
+- **mcp-serena** - AI planning assistant for complex problem-solving
+- **mcp-gemini-bridge** - Access Gemini API capabilities
+- **mcp-perplexity** - AI-powered search and information retrieval
 
-- Debugging workflows
-- Understanding Claude's approach
-- Team audit requirements
-- Performance analysis
+### Data & APIs
 
----
+External data sources (most require API keys - see [Environment Variables](#environment-variables)):
 
-## MCP Server Collections
+- **mcp-open-meteo** - Weather data and forecasts (no key required)
+- **mcp-currency-conversion** - Real-time currency exchange rates
+- **mcp-coingecko** - Cryptocurrency prices and market data
+- **mcp-alphavantage** - Stock market data and financial information
+- **mcp-context7** - Context and workspace management
+- **mcp-firecrawl** - Advanced web scraping
+- **mcp-google-workspace** - Gmail, Calendar, Drive integration
+- **mcp-notion** - Notion workspace integration
 
-MCP (Model Context Protocol) servers extend Claude Code with external data sources and integrations. These collections are grouped by purpose for easy installation.
+### Documentation
 
-### MCP Essentials
+Quick access to technical documentation:
 
-**Plugin Name:** `mcp-essentials`
+- **mcp-cloudflare-docs** - Cloudflare documentation search
+- **mcp-microsoft-docs** - Microsoft documentation search
 
-Core functionality servers that are useful for most projects.
+### Development Tools
 
-**Included Servers:**
+Development automation and infrastructure:
 
-- **fetch** - Web content fetching and scraping
-- **time** - Time and timezone operations (Australia/Perth configured)
-- **playwright** - Browser automation and testing
-
-**When to install:** Almost always - these are fundamental capabilities.
-
-### MCP AI Tools
-
-**Plugin Name:** `mcp-ai-tools`
-
-AI-powered assistants and integrations.
-
-**Included Servers:**
-
-- **serena** - AI planning assistant for complex problem-solving
-- **gemini-bridge** - Access Gemini API capabilities
-
-**When to install:** When you need additional AI planning or want Gemini integration.
-
-### MCP Data Sources
-
-**Plugin Name:** `mcp-data-sources`
-
-External APIs and data integrations. **Requires API keys** - see [Environment Variables](#environment-variables) below.
-
-**Included Servers:**
-
-- **open-meteo** - Weather data and forecasts (no key required)
-- **currency-conversion** - Real-time currency exchange rates
-- **coingecko_api** - Cryptocurrency prices and market data
-- **alphavantage** - Stock market data and financial information
-- **context7** - Context and workspace management
-- **firecrawl** - Advanced web scraping
-- **google_workspace** - Gmail, Calendar, Drive integration
-- **notion** - Notion workspace integration
-- **cloudflare-docs** - Cloudflare documentation search
-- **microsoft_docs** - Microsoft documentation search
-
-**When to install:** Building dashboards, financial apps, or need external data integration.
-
-**Example queries:**
-
-```bash
-"What's the weather in Perth?"
-"Get current Bitcoin price"
-"Show me Tesla stock performance"
-"Convert 100 USD to EUR"
-```
-
-### MCP Dev Tools
-
-**Plugin Name:** `mcp-dev-tools`
-
-Development automation and infrastructure management. Some require credentials.
-
-**Included Servers:**
-
-- **chrome-devtools** - Chrome DevTools protocol integration
-- **n8n-mcp** - n8n workflow automation
-- **mikrotik** - MikroTik router management
-- **mcphub** - MCP hub integration
-
-**When to install:** Browser automation, workflow automation, or network management needs.
+- **mcp-chrome-devtools** - Chrome DevTools protocol integration
+- **mcp-n8n** - n8n workflow automation
+- **mcp-mikrotik** - MikroTik router management
 
 ---
 
@@ -411,29 +357,39 @@ Development automation and infrastructure management. Some require credentials.
 /plugin install fullstack-developer@claudecode-marketplace
 ```
 
-### Install Everything
-
-```bash
-/plugin install development-utilities@claudecode-marketplace
-/plugin install planning-tools@claudecode-marketplace
-/plugin install parallel-execution@claudecode-marketplace
-/plugin install fullstack-developer@claudecode-marketplace
-/plugin install documentation-manager@claudecode-marketplace
-/plugin install validation-gates@claudecode-marketplace
-/plugin install tool-usage-logger@claudecode-marketplace
-/plugin install mcp-essentials@claudecode-marketplace
-/plugin install mcp-ai-tools@claudecode-marketplace
-/plugin install mcp-data-sources@claudecode-marketplace
-/plugin install mcp-dev-tools@claudecode-marketplace
-```
-
 ### Recommended Starting Set
 
 ```bash
-/plugin install development-utilities@claudecode-marketplace
-/plugin install planning-tools@claudecode-marketplace
+# Core plugins
+/plugin install project-onboarding@claudecode-marketplace
+/plugin install prompt-engineering@claudecode-marketplace
+/plugin install strategic-planning@claudecode-marketplace
 /plugin install fullstack-developer@claudecode-marketplace
-/plugin install mcp-essentials@claudecode-marketplace
+
+# Essential MCP servers
+/plugin install mcp-fetch@claudecode-marketplace
+/plugin install mcp-time@claudecode-marketplace
+/plugin install mcp-perplexity@claudecode-marketplace
+```
+
+### Install All Command Plugins
+
+```bash
+/plugin install project-onboarding@claudecode-marketplace
+/plugin install prompt-engineering@claudecode-marketplace
+/plugin install infrastructure-tools@claudecode-marketplace
+/plugin install strategic-planning@claudecode-marketplace
+/plugin install prp-workflow@claudecode-marketplace
+/plugin install experimental-workflows@claudecode-marketplace
+/plugin install parallel-execution@claudecode-marketplace
+```
+
+### Install All Agent Plugins
+
+```bash
+/plugin install fullstack-developer@claudecode-marketplace
+/plugin install documentation-manager@claudecode-marketplace
+/plugin install validation-gates@claudecode-marketplace
 ```
 
 ---
@@ -505,8 +461,10 @@ CF_ACCESS_CLIENT_SECRET=your_client_secret
 ### Data Integration Project
 
 ```bash
-/plugin install mcp-essentials@claudecode-marketplace
-/plugin install mcp-data-sources@claudecode-marketplace
+# Install needed MCP data servers
+/plugin install mcp-coingecko@claudecode-marketplace
+/plugin install mcp-open-meteo@claudecode-marketplace
+/plugin install mcp-alphavantage@claudecode-marketplace
 
 # Set up .env with API keys
 # Query external data sources naturally

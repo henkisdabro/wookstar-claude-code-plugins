@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "project-onboarding",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Project initialization and context setup",
       "keywords": ["onboarding", "context", "initialization", "setup"],
       "category": "commands",
@@ -24,7 +24,7 @@
     },
     {
       "name": "prompt-engineering",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Claude Code prompt and instruction optimization",
       "keywords": ["prompts", "meta", "claude-md", "optimization", "ai-tooling"],
       "category": "commands",
@@ -36,7 +36,7 @@
     },
     {
       "name": "infrastructure-tools",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Application containerization and Docker optimization",
       "keywords": ["docker", "containerization", "deployment", "infrastructure"],
       "category": "commands",
@@ -47,7 +47,7 @@
     },
     {
       "name": "strategic-planning",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Feature planning and deep problem analysis",
       "keywords": ["planning", "analysis", "architecture", "problem-solving"],
       "category": "commands",
@@ -59,7 +59,7 @@
     },
     {
       "name": "prp-workflow",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "PRP-based feature development workflow",
       "keywords": ["prp", "workflow", "feature-development", "structured-engineering"],
       "category": "commands",
@@ -71,7 +71,7 @@
     },
     {
       "name": "experimental-workflows",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Advanced infinite agentic loop for iterative generation",
       "keywords": ["experimental", "advanced", "iterative", "agentic", "automation"],
       "category": "commands",
@@ -82,7 +82,7 @@
     },
     {
       "name": "parallel-execution",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Execute tasks in parallel for efficiency",
       "keywords": ["parallel", "execution", "performance", "efficiency"],
       "category": "commands",
@@ -94,7 +94,7 @@
     },
     {
       "name": "fullstack-developer",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Full-stack development agent",
       "keywords": ["fullstack", "development", "react", "nodejs", "database", "agent"],
       "category": "agents",
@@ -103,7 +103,7 @@
     },
     {
       "name": "documentation-manager",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Documentation specialist agent",
       "keywords": ["documentation", "readme", "technical-writing", "agent"],
       "category": "agents",
@@ -112,7 +112,7 @@
     },
     {
       "name": "validation-gates",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Testing and validation agent",
       "keywords": ["testing", "validation", "quality", "agent"],
       "category": "agents",
@@ -121,7 +121,7 @@
     },
     {
       "name": "mcp-alphavantage",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Stock market data",
       "keywords": ["mcp", "stocks", "market-data", "finance"],
       "category": "mcpServers",
@@ -135,7 +135,7 @@
     },
     {
       "name": "mcp-chrome-devtools",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Chrome DevTools integration",
       "keywords": ["mcp", "chrome", "devtools", "debugging"],
       "category": "mcpServers",
@@ -149,7 +149,7 @@
     },
     {
       "name": "mcp-cloudflare-docs",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Cloudflare documentation access",
       "keywords": ["mcp", "cloudflare", "documentation", "docs"],
       "category": "mcpServers",
@@ -163,7 +163,7 @@
     },
     {
       "name": "mcp-coingecko",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Cryptocurrency market data",
       "keywords": ["mcp", "cryptocurrency", "crypto", "market-data"],
       "category": "mcpServers",
@@ -187,7 +187,7 @@
     },
     {
       "name": "mcp-context7",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Context-aware code understanding",
       "keywords": ["mcp", "context", "code-analysis", "upstash"],
       "category": "mcpServers",
@@ -206,7 +206,7 @@
     },
     {
       "name": "mcp-currency-conversion",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Currency exchange rates",
       "keywords": ["mcp", "currency", "exchange", "forex"],
       "category": "mcpServers",
@@ -220,7 +220,7 @@
     },
     {
       "name": "mcp-fetch",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Web content fetching",
       "keywords": ["mcp", "fetch", "web", "http"],
       "category": "mcpServers",
@@ -234,7 +234,7 @@
     },
     {
       "name": "mcp-firecrawl",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Web crawling and scraping",
       "keywords": ["mcp", "crawling", "scraping", "web"],
       "category": "mcpServers",
@@ -251,7 +251,7 @@
     },
     {
       "name": "mcp-gemini-bridge",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Gemini AI integration",
       "keywords": ["mcp", "gemini", "ai", "google"],
       "category": "mcpServers",
@@ -267,7 +267,7 @@
     },
     {
       "name": "mcp-google-workspace",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Google Workspace integration",
       "keywords": ["mcp", "google", "workspace", "gmail", "drive"],
       "category": "mcpServers",
@@ -286,7 +286,7 @@
     },
     {
       "name": "mcp-microsoft-docs",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Microsoft documentation access",
       "keywords": ["mcp", "microsoft", "documentation", "docs"],
       "category": "mcpServers",
@@ -300,7 +300,7 @@
     },
     {
       "name": "mcp-mikrotik",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "MikroTik router management",
       "keywords": ["mcp", "mikrotik", "router", "network"],
       "category": "mcpServers",
@@ -324,7 +324,7 @@
     },
     {
       "name": "mcp-n8n",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "n8n workflow automation",
       "keywords": ["mcp", "n8n", "automation", "workflows"],
       "category": "mcpServers",
@@ -345,7 +345,7 @@
     },
     {
       "name": "mcp-notion",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Notion workspace integration",
       "keywords": ["mcp", "notion", "workspace", "notes"],
       "category": "mcpServers",
@@ -359,7 +359,7 @@
     },
     {
       "name": "mcp-open-meteo",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Weather and climate data",
       "keywords": ["mcp", "weather", "climate", "forecast"],
       "category": "mcpServers",
@@ -382,7 +382,7 @@
     },
     {
       "name": "mcp-perplexity",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Ai-powered search and information retrieval",
       "keywords": ["mcp", "ai", "information", "search"],
       "category": "mcpServers",
@@ -399,7 +399,7 @@
     },
     {
       "name": "mcp-playwright",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Browser automation with Playwright",
       "keywords": ["mcp", "playwright", "browser", "automation"],
       "category": "mcpServers",
@@ -413,7 +413,7 @@
     },
     {
       "name": "mcp-serena",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "AI planning and task management",
       "keywords": ["mcp", "ai", "planning", "tasks"],
       "category": "mcpServers",
@@ -440,7 +440,7 @@
     },
     {
       "name": "mcp-time",
-      "source": "./",
+      "source": "./.claude-plugin",
       "description": "Time and timezone utilities",
       "keywords": ["mcp", "time", "timezone", "datetime"],
       "category": "mcpServers",
