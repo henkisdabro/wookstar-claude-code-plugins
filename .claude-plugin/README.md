@@ -1,35 +1,39 @@
-# Welcome to the Claude Code Marketplace
+# Claude Code Marketplace
 
-You're browsing a curated collection of productivity-enhancing plugins, specialized AI agents, and powerful integrations for Claude Code.
+A comprehensive plugin providing productivity-enhancing commands, specialized AI agents, and powerful integrations for Claude Code.
 
-## What You'll Find Here
+## Installation
 
-This marketplace contains 11 plugins organized into practical categories to enhance your development workflow. Each plugin has been designed to solve real problems and streamline common tasks.
+```bash
+# Add the marketplace
+/plugin marketplace add github:henkisdabro/claudecode-marketplace
 
-## Quick Navigation
+# Install the main plugin
+/plugin install claudecode-marketplace@claudecode-marketplace
+```
 
-- **[Development Utilities](#development-utilities)** - Essential tools for containerization, prompts, and code analysis
-- **[Planning Tools](#planning-tools)** - Advanced thinking and planning workflows
-- **[Parallel Execution](#parallel-execution)** - Run multiple tasks simultaneously
-- **[Specialized Agents](#specialized-agents)** - AI experts for full-stack, docs, and testing
-- **[Hooks](#hooks)** - Monitor and audit tool usage
-- **[MCP Collections](#mcp-server-collections)** - Data sources and external integrations
+This installs all commands and agents in one package.
 
 ---
 
-## Development Utilities
+## Quick Navigation
 
-**Plugin Name:** `development-utilities`
+- **[Commands](#commands)** - 13 slash commands for development workflows
+- **[Specialized Agents](#specialized-agents)** - 3 AI experts for full-stack, docs, and testing
+- **[MCP Servers](#mcp-servers)** - 20+ external integrations
+- **[Environment Variables](#environment-variables)** - Required API keys
 
-Essential commands for everyday development tasks. Perfect for project setup, containerization, and code improvement.
+---
 
-### Available Commands
+## Commands
+
+All commands are available immediately after installing the plugin.
+
+### Development Utilities
 
 #### `/containerize`
 
-Containerize your application with production-ready Docker configuration. Supports multi-stage builds, security hardening, and optimization.
-
-**Usage:**
+Containerize your application with production-ready Docker configuration.
 
 ```bash
 /containerize --node              # Node.js application
@@ -37,78 +41,59 @@ Containerize your application with production-ready Docker configuration. Suppor
 /containerize --multi-stage       # Optimized multi-stage build
 ```
 
-**What it does:**
-
-- Analyzes your application architecture
+**Features:**
+- Analyzes application architecture
 - Creates optimized Dockerfile with security best practices
 - Generates docker-compose.yaml for local development
 - Configures health checks and graceful shutdown
-- Sets up proper layer caching
 
 #### `/prompt_writer`
 
-Advanced prompt engineering assistant. Helps craft effective prompts for Claude to get better results.
-
-**Usage:**
+Advanced prompt engineering assistant.
 
 ```bash
 /prompt_writer "Create a function that validates email addresses"
 ```
 
-**What it does:**
-
+**Features:**
 - Analyzes your request for clarity
 - Structures prompts for optimal Claude responses
 - Suggests context and constraints
-- Improves specificity and detail
 
 #### `/reflection`
 
-Code analysis and reflection tool. Reviews your current codebase and suggests improvements.
-
-**Usage:**
+Code analysis and reflection tool.
 
 ```bash
 /reflection
 ```
 
-**What it does:**
-
+**Features:**
 - Analyzes recent code changes
 - Identifies patterns and anti-patterns
 - Suggests refactoring opportunities
-- Highlights potential bugs or issues
 
 #### `/primer`
 
-Quick project initialization and setup. Gets new projects started with proper structure.
+Quick project initialization and setup.
 
 #### `/create-agentsmd-symlink`
 
-Manages agent configuration symlinks. Useful for team setups with shared agent configurations.
+Manages agent configuration symlinks for team setups.
 
 ---
 
-## Planning Tools
-
-**Plugin Name:** `planning-tools`
-
-Advanced planning and systematic thinking tools for tackling complex problems. Use these when you need deep analysis or structured planning.
-
-### Available Commands
+### Planning & Strategy
 
 #### `/ultra-think`
 
-Deep analytical thinking mode for complex problems. Breaks down challenges systematically.
-
-**Usage:**
+Deep analytical thinking mode for complex problems.
 
 ```bash
 /ultra-think "Design a real-time collaboration system with WebSockets"
 ```
 
-**What it does:**
-
+**Features:**
 - Multi-layered problem analysis
 - Considers edge cases and constraints
 - Evaluates multiple approaches
@@ -118,60 +103,46 @@ Deep analytical thinking mode for complex problems. Breaks down challenges syste
 
 #### `/planning`
 
-Structured planning workflows for feature development and project tasks.
-
-**Usage:**
+Structured planning workflows for feature development.
 
 ```bash
 /planning "Build user authentication module"
 ```
 
-**What it does:**
-
+**Features:**
 - Creates step-by-step implementation plans
 - Identifies dependencies and prerequisites
 - Breaks down tasks into manageable chunks
-- Estimates complexity and effort
 
 #### `/generate-prp`
 
-Generate a Progressive Refinement Plan. Creates iterative development plans that build complexity gradually.
-
-**Usage:**
+Generate a Progressive Refinement Plan.
 
 ```bash
 /generate-prp "Build a recommendation engine"
 ```
 
-**What it does:**
-
+**Features:**
 - Creates phased implementation plan
 - Defines milestones and deliverables
 - Prioritizes core functionality first
-- Plans for iterative refinement
 
 #### `/execute-prp`
 
-Execute a previously generated Progressive Refinement Plan. Works through the plan systematically.
-
-**Usage:**
+Execute a previously generated Progressive Refinement Plan.
 
 ```bash
 /execute-prp
 ```
 
-**What it does:**
-
+**Features:**
 - Implements plan phase by phase
 - Validates each milestone
 - Adapts plan based on learnings
-- Maintains focus on current phase
 
 #### `/infinite`
 
-Extended context planning mode for large-scale projects and architectural decisions.
-
-**Usage:**
+Extended context planning mode for large-scale projects.
 
 ```bash
 /infinite "Design microservices architecture for e-commerce platform"
@@ -179,84 +150,61 @@ Extended context planning mode for large-scale projects and architectural decisi
 
 ---
 
-## Parallel Execution
-
-**Plugin Name:** `parallel-execution`
-
-Execute multiple independent tasks simultaneously for improved efficiency.
-
-### Available Commands
+### Parallel Execution
 
 #### `/prep-parallel`
 
-Prepare and analyze tasks for parallel execution. Identifies which tasks can run concurrently.
-
-**Usage:**
+Prepare and analyze tasks for parallel execution.
 
 ```bash
 /prep-parallel "Run tests, build frontend, compile backend, lint code"
 ```
 
-**What it does:**
-
+**Features:**
 - Analyzes task dependencies
 - Groups independent tasks
 - Optimizes execution order
-- Estimates time savings
 
 #### `/execute-parallel`
 
-Execute prepared tasks in parallel. Runs multiple tasks concurrently with proper coordination.
-
-**Usage:**
+Execute prepared tasks in parallel.
 
 ```bash
 /execute-parallel
 ```
 
-**What it does:**
-
+**Features:**
 - Runs independent tasks simultaneously
 - Monitors progress of each task
-- Aggregates results
 - Handles failures gracefully
 
 ---
 
 ## Specialized Agents
 
-These agents proactively assist with specific aspects of development. Once installed, they activate automatically when relevant.
+These agents activate automatically when relevant to your work.
 
 ### Full-Stack Developer
 
-**Plugin Name:** `fullstack-developer`
-
-Expert full-stack development specialist covering frontend, backend, and database technologies.
+Expert full-stack development specialist.
 
 **Expertise:**
-
 - Frontend: React, TypeScript, Vue, modern CSS
 - Backend: Node.js, Express, FastAPI, REST/GraphQL APIs
 - Databases: PostgreSQL, MongoDB, Redis
 - Architecture: Microservices, serverless, monoliths
 
 **When it activates:**
-
 - Building web applications
 - API development
 - Database schema design
 - Full-stack feature implementation
 
-**Example:** "Build a REST API for user management with React frontend"
-
 ### Documentation Manager
 
-**Plugin Name:** `documentation-manager`
-
-Technical documentation specialist. Maintains comprehensive and accurate documentation throughout development.
+Technical documentation specialist.
 
 **Expertise:**
-
 - README files and getting started guides
 - API documentation
 - Architecture diagrams and decisions
@@ -264,22 +212,16 @@ Technical documentation specialist. Maintains comprehensive and accurate documen
 - Technical specifications
 
 **When it activates:**
-
 - After implementing new features
 - When code structure changes
 - Creating new projects
 - API modifications
 
-**Example:** "Update documentation for the new authentication module"
-
 ### Validation Gates
 
-**Plugin Name:** `validation-gates`
-
-Testing and quality assurance specialist. Proactively ensures code quality and runs tests.
+Testing and quality assurance specialist.
 
 **Expertise:**
-
 - Unit testing (Jest, pytest, etc.)
 - Integration testing
 - Build validation
@@ -287,148 +229,101 @@ Testing and quality assurance specialist. Proactively ensures code quality and r
 - Test coverage analysis
 
 **When it activates:**
-
 - After feature implementation
 - Before commits
 - During refactoring
 - When tests are requested
 
-**Example:** "Implement user registration feature" - Agent will test automatically
-
 ---
 
 ## MCP Servers
 
-MCP (Model Context Protocol) servers extend Claude Code with external data sources and integrations. Each server is installed individually.
+MCP servers are installed individually to extend Claude Code with external data sources and integrations.
 
 ### Core Utilities
 
 Essential servers for most projects:
 
 - **mcp-fetch** - Web content fetching and scraping
-- **mcp-time** - Time and timezone operations (configured for Australia/Perth)
 - **mcp-playwright** - Browser automation and testing
 
 ### AI & Planning
 
-AI-powered assistants and integrations:
+AI-powered assistants:
 
-- **mcp-serena** - AI planning assistant for complex problem-solving
-- **mcp-gemini-bridge** - Access Gemini API capabilities
-- **mcp-perplexity** - AI-powered search and information retrieval
+- **mcp-serena** - AI planning assistant
+- **mcp-gemini-bridge** - Gemini API capabilities
+- **mcp-perplexity** - AI-powered search
 
 ### Data & APIs
 
-External data sources (most require API keys - see [Environment Variables](#environment-variables)):
+External data sources (most require API keys):
 
-- **mcp-open-meteo** - Weather data and forecasts (no key required)
-- **mcp-currency-conversion** - Real-time currency exchange rates
-- **mcp-coingecko** - Cryptocurrency prices and market data
-- **mcp-alphavantage** - Stock market data and financial information
-- **mcp-context7** - Context and workspace management
+- **mcp-open-meteo** - Weather data (no key required)
+- **mcp-currency-conversion** - Currency exchange rates
+- **mcp-coingecko** - Cryptocurrency market data
+- **mcp-alphavantage** - Stock market data
+- **mcp-context7** - Context management
 - **mcp-firecrawl** - Advanced web scraping
-- **mcp-google-workspace** - Gmail, Calendar, Drive integration
+- **mcp-google-workspace** - Gmail, Calendar, Drive
 - **mcp-notion** - Notion workspace integration
 
 ### Documentation
 
-Quick access to technical documentation:
+Quick access to technical docs:
 
-- **mcp-cloudflare-docs** - Cloudflare documentation search
-- **mcp-microsoft-docs** - Microsoft documentation search
+- **mcp-cloudflare-docs** - Cloudflare documentation
+- **mcp-microsoft-docs** - Microsoft documentation
 
 ### Development Tools
 
-Development automation and infrastructure:
+Development automation:
 
-- **mcp-chrome-devtools** - Chrome DevTools protocol integration
+- **mcp-chrome-devtools** - Chrome DevTools protocol
 - **mcp-n8n** - n8n workflow automation
 - **mcp-mikrotik** - MikroTik router management
 
----
-
-## Installation
-
-### Install Individual Plugins
+**Installation:**
 
 ```bash
-/plugin install development-utilities@claudecode-marketplace
-/plugin install planning-tools@claudecode-marketplace
-/plugin install fullstack-developer@claudecode-marketplace
-```
-
-### Recommended Starting Set
-
-```bash
-# Core plugins
-/plugin install project-onboarding@claudecode-marketplace
-/plugin install prompt-engineering@claudecode-marketplace
-/plugin install strategic-planning@claudecode-marketplace
-/plugin install fullstack-developer@claudecode-marketplace
-
-# Essential MCP servers
 /plugin install mcp-fetch@claudecode-marketplace
-/plugin install mcp-time@claudecode-marketplace
 /plugin install mcp-perplexity@claudecode-marketplace
-```
-
-### Install All Command Plugins
-
-```bash
-/plugin install project-onboarding@claudecode-marketplace
-/plugin install prompt-engineering@claudecode-marketplace
-/plugin install infrastructure-tools@claudecode-marketplace
-/plugin install strategic-planning@claudecode-marketplace
-/plugin install prp-workflow@claudecode-marketplace
-/plugin install experimental-workflows@claudecode-marketplace
-/plugin install parallel-execution@claudecode-marketplace
-```
-
-### Install All Agent Plugins
-
-```bash
-/plugin install fullstack-developer@claudecode-marketplace
-/plugin install documentation-manager@claudecode-marketplace
-/plugin install validation-gates@claudecode-marketplace
 ```
 
 ---
 
 ## Environment Variables
 
-Some MCP servers require API keys and credentials. Create a `.env` file in your project root with required values:
+Some MCP servers require API keys. Create a `.env` file in your project root:
 
 ```bash
-# Cryptocurrency data (CoinGecko)
+# Cryptocurrency data
 COINGECKO_DEMO_API_KEY=your_key_here
 
-# Stock market data (Alpha Vantage)
+# Stock market data
 ALPHAVANTAGEAPIKEY=your_key_here
 
-# Workspace management (Context7)
+# Workspace management
 CONTEXT7_API_KEY=your_key_here
 
-# Web scraping (Firecrawl)
+# Web scraping
 FIRECRAWL_API_KEY=your_key_here
 
-# Workflow automation (n8n)
+# AI search
+PERPLEXITY_API_KEY=your_key_here
+
+# Workflow automation
 N8N_API_KEY=your_key_here
 
-# Google Workspace integration
+# Google Workspace
 GOOGLE_OAUTH_CLIENT_ID=your_client_id
 GOOGLE_OAUTH_CLIENT_SECRET=your_client_secret
 
-# Network management (MikroTik)
+# Network management
 MIKROTIK_HOST=192.168.88.1
 MIKROTIK_USER=admin
 MIKROTIK_PASSWORD=your_password
-
-# Cloudflare Access (mcphub)
-CF_ACCESS_CLIENT_ID=your_client_id
-CF_ACCESS_CLIENT_SECRET=your_client_secret
 ```
-
-**Tip:** Most services offer free tiers or demo API keys. Check their documentation for signup details.
 
 ---
 
@@ -437,9 +332,7 @@ CF_ACCESS_CLIENT_SECRET=your_client_secret
 ### New Project Setup
 
 ```bash
-/plugin install development-utilities@claudecode-marketplace
-/plugin install fullstack-developer@claudecode-marketplace
-/plugin install documentation-manager@claudecode-marketplace
+/plugin install claudecode-marketplace@claudecode-marketplace
 
 /containerize --node --multi-stage
 # Fullstack agent implements features
@@ -449,9 +342,6 @@ CF_ACCESS_CLIENT_SECRET=your_client_secret
 ### Complex Feature Development
 
 ```bash
-/plugin install planning-tools@claudecode-marketplace
-/plugin install validation-gates@claudecode-marketplace
-
 /ultra-think "Design authentication system with OAuth2"
 /generate-prp
 /execute-prp
@@ -461,13 +351,11 @@ CF_ACCESS_CLIENT_SECRET=your_client_secret
 ### Data Integration Project
 
 ```bash
-# Install needed MCP data servers
+# Install MCP data servers
 /plugin install mcp-coingecko@claudecode-marketplace
 /plugin install mcp-open-meteo@claudecode-marketplace
-/plugin install mcp-alphavantage@claudecode-marketplace
 
-# Set up .env with API keys
-# Query external data sources naturally
+# Query external data sources
 "Show me Bitcoin price trends and weather correlation"
 ```
 
@@ -475,19 +363,12 @@ CF_ACCESS_CLIENT_SECRET=your_client_secret
 
 ## Getting Help
 
-### Command Help
-
-```bash
-/containerize --help
-/ultra-think --help
-```
-
 ### Plugin Management
 
 ```bash
 /plugin list                    # Show installed plugins
-/plugin uninstall plugin-name   # Remove a plugin
-/plugin marketplace update      # Refresh marketplace
+/plugin uninstall claudecode-marketplace@claudecode-marketplace
+/plugin marketplace update claudecode-marketplace
 ```
 
 ### Documentation
@@ -507,9 +388,7 @@ CF_ACCESS_CLIENT_SECRET=your_client_secret
 
 ## Version
 
-**Marketplace Version:** 1.1.0
-
-All plugins use semantic versioning. Check individual plugin manifests for specific versions.
+**Marketplace Version:** 2.0.0
 
 ---
 

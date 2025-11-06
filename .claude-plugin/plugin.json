@@ -1,0 +1,18 @@
+{
+  "name": "claudecode-marketplace",
+  "version": "2.0.0",
+  "description": "A comprehensive collection of Claude Code plugins including development utilities, planning tools, agents, hooks, and MCP server configurations",
+  "author": {
+    "name": "Henrik Soederlund",
+    "email": "whom-wealthy.2z@icloud.com"
+  },
+  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "keywords": [
+    "productivity",
+    "agents",
+    "planning",
+    "development",
+    "workflows",
+    "automation"
+  ]
+}

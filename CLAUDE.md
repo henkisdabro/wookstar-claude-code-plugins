@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-This is a Claude Code Plugin Marketplace containing a curated collection of plugins, agents, slash commands, hooks, and MCP server configurations designed to enhance Claude Code development workflows.
+This is a Claude Code Plugin Marketplace containing a single comprehensive plugin with commands, agents, and MCP server configurations designed to enhance Claude Code development workflows.
 
 **Official Documentation:** <https://docs.claude.com/en/docs/claude-code/plugin-marketplaces.md>
 
@@ -19,8 +19,8 @@ This is a Claude Code Plugin Marketplace containing a curated collection of plug
 # Or use relative path from project root
 /plugin marketplace add .
 
-# Install a specific plugin for testing
-/plugin install development-utilities@claudecode-marketplace
+# Install the main plugin for testing
+/plugin install claudecode-marketplace@claudecode-marketplace
 
 # List installed plugins
 /plugin list
@@ -33,10 +33,10 @@ This is a Claude Code Plugin Marketplace containing a curated collection of plug
 
 ```bash
 # Validate marketplace structure and manifest
-claude plugin validate .claude-plugin
+claude plugin validate .
 
-# Validate individual plugin manifests
-claude plugin validate .claude-plugin/plugins/development-utilities
+# Validate from .claude-plugin directory
+claude plugin validate .claude-plugin
 ```
 
 ### Publishing Changes
@@ -45,7 +45,7 @@ Since there's no build step, changes are immediate. Testing workflow:
 
 1. Make changes to plugin files
 2. If marketplace is already added: `/plugin marketplace update claudecode-marketplace`
-3. If testing new plugin: `/plugin install <plugin-name>@claudecode-marketplace`
+3. If testing new plugin: `/plugin install claudecode-marketplace@claudecode-marketplace`
 4. Test the plugin functionality
 5. Commit changes with semantic commit messages
 
@@ -54,140 +54,137 @@ Since there's no build step, changes are immediate. Testing workflow:
 ### Directory Structure
 
 ```
-Repository Root/
+claudecode-marketplace/              # Repository root (single plugin)
 ├── .claude-plugin/
-│   ├── marketplace.json          # Central registry of all plugins
-│   ├── README.md                  # User-facing documentation
-│   ├── ARCHITECTURE.md            # Detailed architecture guide
-│   ├── USAGE.md                   # Usage examples and workflows
-│   ├── commands/                  # All slash commands
-│   │   ├── containerize.md
-│   │   ├── prompt_writer.md
-│   │   ├── planning.md
-│   │   ├── ultra-think.md
-│   │   └── ...
-│   ├── agents/                    # Specialized AI agents
-│   │   ├── fullstack-developer/
-│   │   │   └── fullstack-developer.md
-│   │   ├── documentation-manager/
-│   │   │   └── documentation-manager.md
-│   │   └── validation-gates/
-│   │       └── validation-gates.md
-│   └── hooks/                     # Hook scripts for tool interception
-│       └── tool-logger/
-│           └── log-tool-usage.sh
-├── CLAUDE.md                      # This file
-└── README.md                      # Repository overview
+│   ├── plugin.json                  # Plugin manifest
+│   ├── marketplace.json             # Marketplace manifest
+│   ├── hooks/                       # Hook scripts directory
+│   ├── README.md                    # User-facing documentation
+│   ├── ARCHITECTURE.md              # Detailed architecture guide
+│   └── USAGE.md                     # Usage examples and workflows
+├── agents/                           # All agents (at plugin root)
+│   ├── fullstack-developer.md
+│   ├── documentation-manager.md
+│   └── validation-gates.md
+├── commands/                         # All commands (at plugin root)
+│   ├── containerize.md
+│   ├── prompt_writer.md
+│   ├── planning.md
+│   ├── ultra-think.md
+│   ├── generate-prp.md
+│   ├── execute-prp.md
+│   ├── infinite.md
+│   ├── prep-parallel.md
+│   ├── execute-parallel.md
+│   ├── reflection.md
+│   ├── primer.md
+│   └── create-agentsmd-symlink.md
+├── skills/                           # Skills directory (ready for future use)
+├── hooks/                            # Hooks directory (ready for future use)
+├── CLAUDE.md                         # This file
+└── README.md                         # Repository overview
 ```
 
-### Plugin Types and Components
+### Plugin Structure
 
-#### 1. Command Plugins
+This marketplace uses the **standard plugin format** where:
+- Plugin manifest lives at `.claude-plugin/plugin.json`
+- All components (agents/, commands/, skills/, hooks/) are at the plugin root
+- Components are NOT nested inside `.claude-plugin/`
+- Default directories are used (Claude Code auto-loads from these)
 
-Provide slash commands like `/containerize`, `/ultra-think`. Commands are Markdown files with prompt content.
+### Component Types
 
-**Path convention:** `.claude-plugin/commands/<command-name>.md`
-**Reference in marketplace.json:** `"./commands/<command-name>.md"`
+#### 1. Commands
 
-#### 2. Agent Plugins
+Slash commands like `/containerize`, `/ultra-think`. Commands are Markdown files with prompt content.
+
+**Location:** `commands/` at repository root
+**Auto-loaded:** Yes, all `.md` files in commands/ directory
+
+#### 2. Agents
 
 Specialized AI agents invoked proactively. Agents are Markdown files defining behavior and expertise.
 
-**Path convention:** `.claude-plugin/agents/<agent-name>/<agent-name>.md`
-**Reference in marketplace.json:** `"./agents/<agent-name>/<agent-name>.md"`
+**Location:** `agents/` at repository root
+**Auto-loaded:** Yes, all `.md` files in agents/ directory
 
-#### 3. Hook Plugins
+#### 3. Skills
 
-Scripts that intercept tool usage for logging/monitoring. Currently only PostToolUse hooks.
+Agent Skills extend Claude's capabilities (currently unused but directory is ready).
 
-**Path convention:** `.claude-plugin/hooks/<hook-name>/<script-name>.sh`
-**Reference in marketplace.json:** `"./hooks/<hook-name>/<script-name>.sh"`
+**Location:** `skills/` at repository root
+**Auto-loaded:** Yes, when skill directories with `SKILL.md` are added
 
-#### 4. MCP Collection Plugins
+#### 4. Hooks
 
-Bundled MCP server configurations. No separate files needed - configuration lives entirely in marketplace.json.
+Scripts that intercept tool usage for logging/monitoring (currently unused but directory is ready).
 
-**No plugin.json required** when using `strict: false` in marketplace.json.
+**Location:** `hooks/` at repository root
+**Auto-loaded:** When configured in plugin.json
+
+#### 5. MCP Servers
+
+MCP server configurations for external tool integrations. These are separate plugins with inline configuration.
+
+**Location:** Defined inline in `marketplace.json`
+**No separate files:** Configuration lives entirely in marketplace.json
 
 ### Critical Files
 
+#### plugin.json
+
+The plugin manifest at `.claude-plugin/plugin.json`. Contains:
+
+- Plugin metadata (name, version, description, author)
+- Keywords for discoverability
+- Homepage and repository links
+
 #### marketplace.json
 
-The single source of truth for the marketplace. Contains:
+The marketplace manifest at `.claude-plugin/marketplace.json`. Contains:
 
 - Marketplace metadata (name, owner, description, version)
-- Complete plugin registry with all metadata
-- Plugin sources (relative paths or GitHub repos)
-- MCP server configurations
-- Command/agent/hook definitions
+- Plugin registry with main plugin and MCP servers
+- Plugin sources (relative paths)
+- MCP server configurations (inline)
 
-**Key Design Decision:** Uses `strict: false` which means plugins don't need individual `plugin.json` files if the marketplace.json entry is complete. This reduces duplication and simplifies the structure.
+**Key Design Decision:**
+- Main plugin uses `"source": "./"` which points to repository root
+- MCP servers use `"source": "./.claude-plugin"` with inline config and `strict: false`
 
 **Path Resolution:**
-- All plugins use `"source": "./.claude-plugin"` which points to the `.claude-plugin/` directory relative to the marketplace root
-- All file paths in plugin configurations are relative to this source directory
-- Example: With `"source": "./.claude-plugin"`, the path `"./commands/containerize.md"` resolves to `.claude-plugin/commands/containerize.md`
-- Environment variables: Use `${VAR_NAME}` syntax for user-provided environment variables
+- Main plugin source: `"./"`  → Repository root
+- Components auto-loaded from: `agents/`, `commands/`, `skills/`, `hooks/` at root
+- MCP servers: Inline configuration in marketplace.json
 
-## Adding New Plugins
+## Adding New Components
 
-### Key Path Resolution Rules
+### Adding a Command
 
-1. **Source Directory:** All plugins use `"source": "./.claude-plugin"` which points to the `.claude-plugin/` directory relative to the marketplace root
-2. **File Paths:** All paths are relative to the source (e.g., `"./commands/foo.md"` → `.claude-plugin/commands/foo.md`)
-3. **No plugin.json Required:** With `strict: false`, all metadata lives in marketplace.json
-4. **Flat Structure:** All commands, agents, and hooks live directly under `.claude-plugin/`
+1. Create command file: `commands/<command-name>.md`
+2. File is auto-loaded by Claude Code (no marketplace.json update needed)
+3. Test locally with `/plugin marketplace update claudecode-marketplace`
 
-### Adding a Command Plugin
+### Adding an Agent
 
-1. Create command file: `.claude-plugin/commands/<command-name>.md`
-2. Add entry to `marketplace.json` plugins array:
+1. Create agent file: `agents/<agent-name>.md`
+2. File is auto-loaded by Claude Code (no marketplace.json update needed)
+3. Test locally with `/plugin marketplace update claudecode-marketplace`
 
-```json
-{
-  "name": "my-plugin",
-  "source": "./.claude-plugin",
-  "description": "Plugin description",
-  "keywords": ["keyword1", "keyword2"],
-  "category": "commands",
-  "commands": [
-    "./commands/<command-name>.md"
-  ],
-  "strict": false
-}
-```
+### Adding a Skill
 
-3. Test locally with `/plugin marketplace add .`
+1. Create skill directory: `skills/<skill-name>/`
+2. Create skill file: `skills/<skill-name>/SKILL.md`
+3. File is auto-loaded by Claude Code (no marketplace.json update needed)
+4. Test locally
 
-### Adding an Agent Plugin
+### Adding a Hook
 
-1. Create directory and agent file: `.claude-plugin/agents/<agent-name>/<agent-name>.md`
-2. Add entry to `marketplace.json`:
+1. Create hook configuration in `.claude-plugin/plugin.json`:
 
 ```json
 {
-  "name": "my-agent",
-  "source": "./.claude-plugin",
-  "description": "Agent description",
-  "category": "agents",
-  "agents": ["./agents/<agent-name>/<agent-name>.md"],
-  "strict": false
-}
-```
-
-3. Test locally
-
-### Adding a Hook Plugin
-
-1. Create directory and script: `.claude-plugin/hooks/<hook-name>/<script-name>.sh`
-2. Add entry to `marketplace.json`:
-
-```json
-{
-  "name": "my-hook",
-  "source": "./.claude-plugin",
-  "description": "Hook description",
-  "category": "hooks",
   "hooks": {
     "PostToolUse": [
       {
@@ -195,37 +192,41 @@ The single source of truth for the marketplace. Contains:
         "hooks": [
           {
             "type": "command",
-            "command": "./hooks/<hook-name>/<script-name>.sh"
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/my-hook.sh"
           }
         ]
       }
     ]
-  },
-  "strict": false
+  }
 }
 ```
 
-3. Test locally
+2. Create hook script: `hooks/my-hook.sh`
+3. Make executable: `chmod +x hooks/my-hook.sh`
+4. Test locally
 
-### Adding an MCP Collection Plugin
+### Adding an MCP Server
 
-No files needed - configuration lives entirely in marketplace.json:
+1. Add entry to `marketplace.json` plugins array:
 
 ```json
 {
-  "name": "mcp-my-collection",
+  "name": "mcp-my-server",
   "source": "./.claude-plugin",
-  "description": "MCP server collection description",
+  "description": "MCP server description",
+  "keywords": ["mcp", "integration"],
   "category": "mcpServers",
   "mcpServers": {
-    "server-name": {
-      "command": "uvx",
-      "args": ["package-name"]
+    "my-server": {
+      "command": "npx",
+      "args": ["my-mcp-package"]
     }
   },
   "strict": false
 }
 ```
+
+2. Test locally with `/plugin install mcp-my-server@claudecode-marketplace`
 
 ## Environment Variables
 
@@ -239,7 +240,7 @@ All plugins must include:
 
 - `name`: kebab-case identifier
 - `description`: Clear, concise description
-- `category`: One of: productivity, agents, monitoring, mcp-servers
+- `category`: One of: commands, agents, hooks, mcpServers
 - `keywords`: Array of searchable tags
 
 ## Version Management
@@ -250,7 +251,7 @@ Follow semantic versioning strictly:
 - **MINOR**: New features (backward compatible)
 - **PATCH**: Bug fixes (backward compatible)
 
-Update both the plugin version AND the marketplace metadata version when making significant marketplace-wide changes.
+Update both the plugin version AND the marketplace metadata version when making significant changes.
 
 ## Team Configuration
 
@@ -267,30 +268,37 @@ This marketplace is designed for team adoption. Users can add to `.claude/settin
     }
   },
   "enabledPlugins": [
-    "development-utilities@claudecode-marketplace",
-    "planning-tools@claudecode-marketplace"
+    "claudecode-marketplace@claudecode-marketplace"
   ]
 }
 ```
 
-When team members trust the repository, plugins install automatically.
+When team members trust the repository, the main plugin installs automatically.
 
 ## Important Constraints
 
 1. **No Build Process**: This is a pure marketplace - no compilation or build steps
-2. **Flattened Structure**: All content lives directly under `.claude-plugin/` (no nested `plugins/` subdirectories)
-3. **Single Source of Truth**: marketplace.json is the only configuration file (no individual plugin.json files)
-4. **Relative Path Convention**: All plugins use `"source": "./"` and paths are relative to `.claude-plugin/`
-5. **Environment Variable Security**: Never commit API keys or secrets to the repository
-6. **Markdown Format**: Commands and agents are Markdown files, not code
-7. **Plugin Isolation**: Each plugin should be independent and self-contained
+2. **Standard Plugin Structure**: Follows Claude Code standard plugin format
+3. **Auto-Loading**: Components in default directories load automatically
+4. **Single Main Plugin**: All commands and agents in one plugin
+5. **Separate MCP Plugins**: Each MCP server is a separate plugin with inline config
+6. **Environment Variable Security**: Never commit API keys or secrets
+7. **Markdown Format**: Commands and agents are Markdown files
 
 ## Documentation Files
 
-- **README.md**: User-facing overview, installation instructions, plugin catalog
-- **ARCHITECTURE.md**: Deep dive into design decisions, plugin types, structure
-- **USAGE.md**: Practical examples, workflows, troubleshooting, best practices
+- **README.md**: User-facing overview, installation instructions
+- **.claude-plugin/README.md**: Complete plugin catalog and feature documentation
+- **.claude-plugin/ARCHITECTURE.md**: Deep dive into design decisions
+- **.claude-plugin/USAGE.md**: Practical examples, workflows, troubleshooting
 - **CLAUDE.md** (this file): Quick reference for Claude Code instances
 
-When making changes to plugins, consider whether documentation needs updating to reflect new functionality or changed behavior.
-In marketplace.json: Plugin entries "category" entry, can only have a value of either "commands", "agents", "hooks", "mcpServers"
+When making changes to components, consider whether documentation needs updating to reflect new functionality or changed behavior.
+
+## Category Values
+
+In marketplace.json, plugin entries "category" field can only have these values:
+- `"commands"` - For command-based plugins
+- `"agents"` - For agent-based plugins
+- `"hooks"` - For hook-based plugins
+- `"mcpServers"` - For MCP server integrations

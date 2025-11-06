@@ -1,6 +1,6 @@
 # Claude Code Marketplace
 
-A curated collection of plugins, agents, slash commands, hooks, and MCP server configurations for [Claude Code](https://claude.ai/code).
+A comprehensive plugin for [Claude Code](https://claude.ai/code) providing slash commands, specialized agents, and MCP server integrations.
 
 ## Installation
 
@@ -10,45 +10,61 @@ Add this marketplace to your Claude Code configuration:
 /plugin marketplace add github:henkisdabro/claudecode-marketplace
 ```
 
-## Documentation
+Then install the main plugin:
 
-For full documentation, plugin catalog, and usage examples, see [.claude-plugin/README.md](.claude-plugin/README.md).
+```bash
+/plugin install claudecode-marketplace@claudecode-marketplace
+```
+
+## What's Included
+
+This single plugin provides:
+
+### Commands (13 total)
+- `/containerize` - Docker containerization with best practices
+- `/prompt_writer` - Advanced prompt engineering
+- `/planning` - Structured feature planning
+- `/ultra-think` - Deep analytical thinking
+- `/generate-prp` - Progressive refinement plans
+- `/execute-prp` - Execute refinement plans
+- `/infinite` - Extended context planning
+- `/prep-parallel` - Prepare parallel execution
+- `/execute-parallel` - Run tasks in parallel
+- `/reflection` - Code analysis and review
+- `/primer` - Project initialization
+- `/create-agentsmd-symlink` - Agent configuration management
+
+### Agents (3 specialists)
+- **fullstack-developer** - Full-stack development expert
+- **documentation-manager** - Technical documentation specialist
+- **validation-gates** - Testing and quality assurance
+
+### MCP Servers (20+ integrations)
+Individual MCP servers for AI, data APIs, documentation, and development tools.
+
+See [.claude-plugin/README.md](.claude-plugin/README.md) for complete documentation.
 
 ## Quick Start
 
-After adding the marketplace, install plugins:
-
 ```bash
-# Development utilities
-/plugin install development-utilities@claudecode-marketplace
+# Install the main plugin
+/plugin install claudecode-marketplace@claudecode-marketplace
 
-# Essential plugins
-/plugin install strategic-planning@claudecode-marketplace
-/plugin install fullstack-developer@claudecode-marketplace
+# Try some commands
+/containerize --node
+/ultra-think "Design authentication system"
+/planning "Build user dashboard"
 
-# Essential MCP servers
+# Install MCP servers as needed
 /plugin install mcp-fetch@claudecode-marketplace
-/plugin install mcp-time@claudecode-marketplace
+/plugin install mcp-perplexity@claudecode-marketplace
 ```
 
-## Available Plugin Categories
+## Documentation
 
-### Commands
-- **project-onboarding** - Project initialization and context setup
-- **prompt-engineering** - Claude Code prompt and instruction optimization
-- **infrastructure-tools** - Application containerization and Docker optimization
-- **strategic-planning** - Feature planning and deep problem analysis
-- **prp-workflow** - PRP-based feature development workflow
-- **experimental-workflows** - Advanced infinite agentic loop
-- **parallel-execution** - Parallel task execution tools
-
-### Agents
-- **fullstack-developer** - Full-stack development agent
-- **documentation-manager** - Documentation specialist agent
-- **validation-gates** - Testing and validation agent
-
-### MCP Servers
-20+ individual MCP servers for AI, data APIs, documentation, and development tools. See `.claude-plugin/README.md` for full list.
+- **[User Guide](.claude-plugin/README.md)** - Complete feature documentation
+- **[Architecture](.claude-plugin/ARCHITECTURE.md)** - Technical design details
+- **[Usage Examples](.claude-plugin/USAGE.md)** - Workflows and troubleshooting
 
 ## License
 

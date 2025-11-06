@@ -6,118 +6,15 @@
   },
   "metadata": {
     "description": "A comprehensive collection of Claude Code plugins including development utilities, planning tools, agents, hooks, and MCP server configurations",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "homepage": "https://github.com/henkisdabro/claudecode-marketplace"
   },
   "plugins": [
     {
-      "name": "project-onboarding",
-      "source": "./.claude-plugin",
-      "description": "Project initialization and context setup",
-      "keywords": ["onboarding", "context", "initialization", "setup"],
-      "category": "commands",
-      "commands": [
-        "./commands/primer.md",
-        "./commands/create-agentsmd-symlink.md"
-      ],
-      "strict": false
-    },
-    {
-      "name": "prompt-engineering",
-      "source": "./.claude-plugin",
-      "description": "Claude Code prompt and instruction optimization",
-      "keywords": ["prompts", "meta", "claude-md", "optimization", "ai-tooling"],
-      "category": "commands",
-      "commands": [
-        "./commands/prompt_writer.md",
-        "./commands/reflection.md"
-      ],
-      "strict": false
-    },
-    {
-      "name": "infrastructure-tools",
-      "source": "./.claude-plugin",
-      "description": "Application containerization and Docker optimization",
-      "keywords": ["docker", "containerization", "deployment", "infrastructure"],
-      "category": "commands",
-      "commands": [
-        "./commands/containerize.md"
-      ],
-      "strict": false
-    },
-    {
-      "name": "strategic-planning",
-      "source": "./.claude-plugin",
-      "description": "Feature planning and deep problem analysis",
-      "keywords": ["planning", "analysis", "architecture", "problem-solving"],
-      "category": "commands",
-      "commands": [
-        "./commands/planning.md",
-        "./commands/ultra-think.md"
-      ],
-      "strict": false
-    },
-    {
-      "name": "prp-workflow",
-      "source": "./.claude-plugin",
-      "description": "PRP-based feature development workflow",
-      "keywords": ["prp", "workflow", "feature-development", "structured-engineering"],
-      "category": "commands",
-      "commands": [
-        "./commands/generate-prp.md",
-        "./commands/execute-prp.md"
-      ],
-      "strict": false
-    },
-    {
-      "name": "experimental-workflows",
-      "source": "./.claude-plugin",
-      "description": "Advanced infinite agentic loop for iterative generation",
-      "keywords": ["experimental", "advanced", "iterative", "agentic", "automation"],
-      "category": "commands",
-      "commands": [
-        "./commands/infinite.md"
-      ],
-      "strict": false
-    },
-    {
-      "name": "parallel-execution",
-      "source": "./.claude-plugin",
-      "description": "Execute tasks in parallel for efficiency",
-      "keywords": ["parallel", "execution", "performance", "efficiency"],
-      "category": "commands",
-      "commands": [
-        "./commands/prep-parallel.md",
-        "./commands/execute-parallel.md"
-      ],
-      "strict": false
-    },
-    {
-      "name": "fullstack-developer",
-      "source": "./.claude-plugin",
-      "description": "Full-stack development agent",
-      "keywords": ["fullstack", "development", "react", "nodejs", "database", "agent"],
-      "category": "agents",
-      "agents": ["./agents/fullstack-developer.md"],
-      "strict": false
-    },
-    {
-      "name": "documentation-manager",
-      "source": "./.claude-plugin",
-      "description": "Documentation specialist agent",
-      "keywords": ["documentation", "readme", "technical-writing", "agent"],
-      "category": "agents",
-      "agents": ["./agents/documentation-manager.md"],
-      "strict": false
-    },
-    {
-      "name": "validation-gates",
-      "source": "./.claude-plugin",
-      "description": "Testing and validation agent",
-      "keywords": ["testing", "validation", "quality", "agent"],
-      "category": "agents",
-      "agents": ["./agents/validation-gates.md"],
-      "strict": false
+      "name": "claudecode-marketplace",
+      "source": "./",
+      "description": "A comprehensive collection of Claude Code plugins including development utilities, planning tools, agents, hooks, and MCP server configurations",
+      "keywords": ["productivity", "agents", "planning", "development", "workflows", "automation"]
     },
     {
       "name": "mcp-alphavantage",
@@ -434,20 +331,6 @@
             "FALSE"
           ],
           "env": {}
-        }
-      },
-      "strict": false
-    },
-    {
-      "name": "mcp-time",
-      "source": "./.claude-plugin",
-      "description": "Time and timezone utilities",
-      "keywords": ["mcp", "time", "timezone", "datetime"],
-      "category": "mcpServers",
-      "mcpServers": {
-        "time": {
-          "command": "uvx",
-          "args": ["mcp-server-time", "--local-timezone=Australia/Perth"]
         }
       },
       "strict": false
