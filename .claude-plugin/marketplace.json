@@ -334,6 +334,62 @@
         }
       },
       "strict": false
+    },
+    {
+      "name": "docx",
+      "source": "./skills/docx",
+      "description": "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction",
+      "keywords": ["documents", "docx", "word", "editing", "formatting"],
+      "category": "skills"
+    },
+    {
+      "name": "git-commit-helper",
+      "source": "./skills/git-commit-helper",
+      "description": "Generate descriptive commit messages by analyzing git diffs",
+      "keywords": ["git", "commit", "version-control", "messages"],
+      "category": "skills"
+    },
+    {
+      "name": "pdf-processing-pro",
+      "source": "./skills/pdf-processing-pro",
+      "description": "Production-ready PDF processing with forms, tables, OCR, validation, and batch operations",
+      "keywords": ["pdf", "processing", "forms", "ocr", "documents"],
+      "category": "skills"
+    },
+    {
+      "name": "prp-generator",
+      "source": "./skills/prp-generator",
+      "description": "Generate comprehensive Product Requirement Plans (PRPs) for feature implementation",
+      "keywords": ["prp", "prd", "requirements", "planning", "documentation"],
+      "category": "skills"
+    },
+    {
+      "name": "skill-creator",
+      "source": "./skills/skill-creator",
+      "description": "Guide for creating effective skills that extend Claude's capabilities",
+      "keywords": ["skills", "creation", "development", "guide"],
+      "category": "skills"
+    },
+    {
+      "name": "timezone-tools",
+      "source": "./skills/timezone-tools",
+      "description": "Get current time in any timezone and convert times between timezones",
+      "keywords": ["timezone", "time", "date", "scheduling", "conversion"],
+      "category": "skills"
+    },
+    {
+      "name": "webapp-testing",
+      "source": "./skills/webapp-testing",
+      "description": "Toolkit for testing local web applications using Playwright",
+      "keywords": ["testing", "playwright", "webapp", "ui", "automation"],
+      "category": "skills"
+    },
+    {
+      "name": "xlsx",
+      "source": "./skills/xlsx",
+      "description": "Comprehensive spreadsheet creation, editing, and analysis with formulas and formatting",
+      "keywords": ["spreadsheet", "xlsx", "excel", "formulas", "data-analysis"],
+      "category": "skills"
     }
   ]
 }
