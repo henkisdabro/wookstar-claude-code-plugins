@@ -1,7 +1,7 @@
 {
-  "name": "claudecode-marketplace",
+  "name": "essential-toolkit",
   "version": "2.0.0",
-  "description": "A comprehensive collection of Claude Code plugins including development utilities, planning tools, agents, hooks, and MCP server configurations",
+  "description": "Essential commands and agents for all types of work in Claude Code - includes planning tools, development utilities, documentation management, and AI thinking helpers",
   "author": {
     "name": "Henrik Soederlund",
     "email": "whom-wealthy.2z@icloud.com"

@@ -11,10 +11,10 @@
   },
   "plugins": [
     {
-      "name": "claudecode-marketplace",
+      "name": "essential-toolkit",
       "source": "./",
-      "description": "A comprehensive collection of Claude Code plugins including development utilities, planning tools, agents, hooks, and MCP server configurations",
-      "keywords": ["productivity", "agents", "planning", "development", "workflows", "automation"]
+      "description": "Essential commands and agents for all types of work in Claude Code - includes planning tools, development utilities, documentation management, and AI thinking helpers",
+      "keywords": ["essential", "productivity", "agents", "planning", "development", "workflows", "automation", "toolkit"]
     },
     {
       "name": "mcp-alphavantage",
