@@ -16,7 +16,7 @@ This is a Claude Code Plugin Marketplace containing **thematic toolkits** - cura
 
 ```bash
 # Add marketplace from local directory
-/plugin marketplace add /home/user/claudecode-marketplace
+/plugin marketplace add /home/user/wookstar-claude-code-plugins
 
 # Or use relative path from project root
 /plugin marketplace add .
@@ -79,7 +79,7 @@ This marketplace uses a **thematic bundles architecture** where components are o
 ### Directory Structure
 
 ```
-claudecode-marketplace/              # Repository root
+wookstar-claude-code-plugins/        # Repository root
 ├── .claude-plugin/
 │   ├── marketplace.json             # Marketplace manifest (defines all toolkits)
 │   ├── README.md                    # User-facing documentation
@@ -357,7 +357,7 @@ Each toolkit includes its own README.md documenting:
     "name": "Your Name",
     "email": "your.email@example.com"
   },
-  "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+  "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
   "keywords": ["keyword1", "keyword2", "keyword3"],
   "category": "appropriate-category",
   "strict": false
@@ -524,7 +524,7 @@ This marketplace is designed for team adoption. Users can add to `.claude/settin
     "wookstar": {
       "source": {
         "source": "github",
-        "repo": "henkisdabro/claudecode-marketplace"
+        "repo": "henkisdabro/wookstar-claude-code-plugins"
       }
     }
   },

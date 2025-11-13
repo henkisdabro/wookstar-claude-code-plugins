@@ -9,7 +9,7 @@ A comprehensive marketplace for [Claude Code](https://claude.ai/code) providing 
 Add this marketplace to Claude Code:
 
 ```bash
-/plugin marketplace add github:henkisdabro/claudecode-marketplace
+/plugin marketplace add github:henkisdabro/wookstar-claude-code-plugins
 ```
 
 Then install the toolkits you need:
@@ -413,7 +413,7 @@ Configure automatic installation in your repository's `.claude/settings.json`:
     "wookstar": {
       "source": {
         "source": "github",
-        "repo": "henkisdabro/claudecode-marketplace"
+        "repo": "henkisdabro/wookstar-claude-code-plugins"
       }
     }
   },
@@ -436,8 +436,8 @@ When team members trust the repository, Claude Code automatically installs these
 
 ```bash
 # Clone the repository
-git clone https://github.com/henkisdabro/claudecode-marketplace.git
-cd claudecode-marketplace
+git clone https://github.com/henkisdabro/wookstar-claude-code-plugins.git
+cd wookstar-claude-code-plugins
 
 # Add as local marketplace
 /plugin marketplace add .
@@ -487,7 +487,7 @@ vi skills/new-skill/SKILL.md
 
 ## 🆘 Support
 
-- **Issues:** [GitHub Issues](https://github.com/henkisdabro/claudecode-marketplace/issues)
+- **Issues:** [GitHub Issues](https://github.com/henkisdabro/wookstar-claude-code-plugins/issues)
 - **Email:** whom-wealthy.2z@icloud.com
 - **Docs:** [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code)
 

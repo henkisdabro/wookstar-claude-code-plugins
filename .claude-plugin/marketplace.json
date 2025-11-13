@@ -7,7 +7,7 @@
   "metadata": {
     "description": "Comprehensive Claude Code marketplace with specialized toolkits for productivity, development, analytics, documents, e-commerce, and AI integrations - now featuring complete GTM, GA4, Shopify, and Google Automation suites",
     "version": "3.0.0",
-    "homepage": "https://github.com/henkisdabro/claudecode-marketplace"
+    "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins"
   },
   "plugins": [
     {
@@ -19,7 +19,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "productivity",
         "planning",
@@ -42,7 +42,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "development",
         "fullstack",
@@ -65,7 +65,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "documents",
         "docx",
@@ -90,7 +90,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "claude-code",
         "skills",
@@ -111,7 +111,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "finance",
         "stocks",
@@ -134,7 +134,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "ai",
         "gemini",
@@ -155,7 +155,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "gtm",
         "google-tag-manager",
@@ -182,7 +182,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "ga",
         "ga4",
@@ -210,7 +210,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "shopify",
         "liquid",
@@ -237,7 +237,7 @@
         "name": "Henrik Soederlund",
         "email": "whom-wealthy.2z@icloud.com"
       },
-      "homepage": "https://github.com/henkisdabro/claudecode-marketplace",
+      "homepage": "https://github.com/henkisdabro/wookstar-claude-code-plugins",
       "keywords": [
         "google-apps-script",
         "google-ads-scripts",

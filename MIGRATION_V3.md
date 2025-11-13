@@ -67,7 +67,7 @@ Standalone MCPs not bundled into toolkits:
 
 ### Old Structure
 ```
-claudecode-marketplace/
+wookstar-claude-code-plugins/
 ├── .claude-plugin/
 │   ├── plugin.json
 │   └── marketplace.json
@@ -81,7 +81,7 @@ claudecode-marketplace/
 
 ### New Structure
 ```
-claudecode-marketplace/
+wookstar-claude-code-plugins/
 ├── .claude-plugin/
 │   └── marketplace.json (updated to v3.0)
 │
