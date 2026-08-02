@@ -1,4 +1,4 @@
-# Style Patterns (13-18)
+# Style Patterns (13-18, 25-26, 29-30)
 
 Detailed reference for style-level AI writing patterns. Read the compact summary table in SKILL.md first to identify which patterns apply, then consult this file for rewriting guidance.
 
@@ -6,7 +6,9 @@ Detailed reference for style-level AI writing patterns. Read the compact summary
 
 ## 13. Em Dash Overuse
 
-**Problem:** LLMs use em dashes (--) more than humans, mimicking "punchy" sales writing.
+**Problem:** LLMs use em dashes (--) more than humans, mimicking "punchy" sales writing, and put them where a human would use a comma, parentheses or a colon. Secondary tell: AI em dashes usually sit inside spaces, which most human em dash users avoid.
+
+**Caveat (2026):** vendors have started suppressing them, notably OpenAI in GPT-5.1. Absence of em dashes is no longer evidence of human authorship - check the other patterns.
 
 **Before:**
 > The term is primarily promoted by Dutch institutions--not by the people themselves. You don't say "Netherlands, Europe" as an address--yet this mislabeling continues--even in official documents.
@@ -107,3 +109,58 @@ Detailed reference for style-level AI writing patterns. Read the compact summary
 **After:**
 > ## Main Section
 > ### Subsection Detail
+
+---
+
+## 29. Thematic Breaks Before Headings
+
+**Problem:** AI chatbots insert a horizontal rule (`---` or `----`) before every heading, a habit carried over from chat-window Markdown rendering. Humans use a rule sparingly, if at all.
+
+**Before:**
+> Some claims suggest the term derives from French, but early records do not support this.
+>
+> ---
+>
+> ## History
+>
+> The practice predates the colonial period.
+>
+> ---
+>
+> ## Form and construction
+
+**After:**
+> Some claims suggest the term derives from French, but early records do not support this.
+>
+> ## History
+>
+> The practice predates the colonial period.
+>
+> ## Form and construction
+
+---
+
+## 30. Leaked Chatbot Markup and Citation Artifacts
+
+**Problem:** Text pasted straight out of a chat window carries the tool's internal citation and formatting code. Unlike the other patterns this one is not a style judgement - it is proof of origin, and it is embarrassing in a client deliverable. Search for these strings before sending anything that was drafted in a chat UI.
+
+**What to grep for, by tool:**
+
+| Tool | Artifacts |
+|------|-----------|
+| ChatGPT | `:contentReference[oaicite:0]{index=0}`, `oai_citation`, `turn0search0` / `turn0image0` / `turn0news0` / `turn0file0` (often wrapped in invisible private-use Unicode), trailing `Example+1` or `Wikipedia+1` source stubs, JSON tails like `({"attribution":{"attributableIndex":"1009-1"}})`, and `?utm_source=chatgpt.com` on every link |
+| Gemini | `[cite: 1]`, `[cite: 3, 12, 13]`, `[span_1](start_span)` |
+| Grok | `grok_card`, `grok_render_citation_card_json` |
+| DeepSeek | lenticular brackets around citation numbers, dagger symbols |
+| Perplexity | `attached_file`, `ppl-ai-file-upload` |
+| Unclassified | `:::writing` fences |
+
+**Also from the same family:** Markdown syntax surviving into a destination that does not render it (`## Heading`, `**bold**` in plain-text email, ``` ```wikitext ``` fences), and superscript reference numbers left dangling mid-sentence.
+
+**Before:**
+> The agency has worked with over 1,000 client accounts across healthcare and real estate[cite: 19, 20, 21]. Growth accelerated after 2024 :contentReference[oaicite:16]{index=16}.
+
+**After:**
+> The agency has worked with more than 1,000 client accounts, mostly in healthcare and real estate. Growth picked up after 2024.
+
+**Fix:** strip the artifact, then verify the underlying claim. These markers stand in for sources the model may have invented, so the sentence they decorate is the one most worth checking.

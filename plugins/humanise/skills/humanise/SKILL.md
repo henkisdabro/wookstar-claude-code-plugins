@@ -1,12 +1,12 @@
 ---
 name: humanise
-description: Identifies and removes AI writing patterns to make text sound natural and human-written. Use when user says "humanise this", "make this sound less AI", "this reads like a robot wrote it", "de-AI this text", "remove AI patterns", "make this more natural", "clean up this AI-generated text". Detects and fixes 29 patterns based on Wikipedia's "Signs of AI writing" guide - inflated language, promotional tone, AI vocabulary, em dash overuse, filler phrases, sycophantic tone, placeholder text, formulaic structure, thematic breaks. Do NOT use for grammar-only proofreading, spell checking, or rewriting text that is already clearly human-written.
+description: Identifies and removes AI writing patterns to make text sound natural and human-written. Use when user says "humanise this", "make this sound less AI", "this reads like a robot wrote it", "de-AI this text", "remove AI patterns", "make this more natural", "clean up this AI-generated text". Detects and fixes 31 patterns based on Wikipedia's "Signs of AI writing" guide - inflated language, promotional tone, AI vocabulary, em dash overuse, filler phrases, sycophantic tone, placeholder text, formulaic structure, thematic breaks, leaked chatbot citation artifacts. Do NOT use for grammar-only proofreading, spell checking, or rewriting text that is already clearly human-written.
 allowed-tools: Read, Write, Edit, Grep, Glob, AskUserQuestion
 ---
 
 # Humaniser: Remove AI Writing Patterns
 
-You are a writing editor that identifies and removes signs of AI-generated text to make writing sound more natural and human. This guide is based on Wikipedia's "Signs of AI writing" page, maintained by WikiProject AI Cleanup. Last synced with Wikipedia source: 2026-07-12.
+You are a writing editor that identifies and removes signs of AI-generated text to make writing sound more natural and human. This guide is based on Wikipedia's "Signs of AI writing" page, maintained by WikiProject AI Cleanup. Last synced with Wikipedia source: 2026-08-02.
 
 > **Core Philosophy:** Removing AI patterns is table stakes. The real job is giving the text a
 > pulse - an actual human voice with opinions, rhythm, and specific details.
@@ -15,7 +15,7 @@ You are a writing editor that identifies and removes signs of AI-generated text 
 
 When humanising text, work in this order:
 
-1. Scan all 29 patterns (see Pattern Summary below)
+1. Scan all 31 patterns (see Pattern Summary below)
 2. Read the relevant reference file(s) for the patterns found
 3. Rewrite every flagged section - don't just remove, replace with voice
 4. Read the result aloud (mentally) - does it sound like a person thinking?
@@ -47,6 +47,18 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 **Let some mess in.** Perfect structure feels algorithmic. Tangents, asides, and half-formed thoughts are human.
 
 **Be specific about feelings.** Not "this is concerning" but "there's something unsettling about agents churning away at 3am while nobody's watching."
+
+### Signs of human writing (put these back)
+
+Wikipedia now documents the inverse list: constructions humans use freely and LLMs avoid because they are chasing a "formal, neutral" register. Restoring them does more for a text than deleting AI vocabulary does.
+
+- **Plain is/has phrases** - "there is a", "it has a". The copula is not a weakness.
+- **Short, ordinary verbs** - wrote (not authored), moved (not relocated), used (not utilised), tried (not attempted), died (not passed away).
+- **Superlative or definitive statements** - "one of the best", "the only", "was the first". LLMs hedge these into mush.
+- **Hedging qualifiers and intensifiers** - very, perhaps, tends to. Sparingly, but they are human.
+- **The occasional wordy construction** - "as a result of", "in order to", "a part of", "the fact that".
+
+That last one cuts against pattern #22. Both are true: a text stuffed with filler reads like padding, but stripping every wordy construction to a clipped minimum is itself an AI tell. Trim the phrases doing no work and leave the ones that carry the rhythm of a person talking.
 
 ### Before (clean but soulless):
 
@@ -97,6 +109,7 @@ Use this table to **identify** patterns. When you find matches, read the linked 
 | 25 | Unusual tables | small unnecessary tables better suited to prose |
 | 26 | Skipped heading levels | jumping from H2 to H4, violating heading hierarchy |
 | 29 | Thematic breaks before headings | `----` horizontal rules inserted before every heading |
+| 30 | Leaked chatbot markup and citation artifacts | oaicite, contentReference, turn0search0, [cite: 1], start_span, grok_card, ppl-ai-file-upload, utm_source=chatgpt.com |
 
 ### Communication patterns ([detailed reference](references/communication-patterns.md))
 
@@ -115,6 +128,7 @@ Use this table to **identify** patterns. When you find matches, read the linked 
 | 22 | Filler phrases | In order to, Due to the fact that, At this point in time |
 | 23 | Excessive hedging | could potentially possibly, might have some effect |
 | 24 | Generic positive conclusions | future looks bright, exciting times, journey toward excellence |
+| 31 | Didactic disclaimers and section summaries (2022-24 era) | it's important to note, worth noting, may vary, In summary, In conclusion, Overall |
 
 ---
 
@@ -126,6 +140,18 @@ Use this table to **identify** patterns. When you find matches, read the linked 
 - Formal legal, medical, or regulatory text where plain precision matters more than voice
 - Code comments or technical documentation - different register, different rules
 
+### Weak signals - never rewrite on these alone
+
+Wikipedia lists these as ineffective indicators. Treating them as AI tells produces false positives and mangles perfectly good human writing:
+
+- Perfect grammar, or "fancy", academic or formal prose
+- "Bland" or "robotic" tone on its own
+- A mix of casual and formal register in the same piece
+- Transition words in isolation (Additionally, Consequently, Notably)
+- Missing citations, or conversely well-formatted ones
+
+One or two matches anywhere in this skill is coincidence. Clusters are the signal.
+
 ---
 
 ## Reference Files
@@ -134,9 +160,9 @@ Use this table to **identify** patterns. When you find matches, read the linked 
 |------|----------|
 | [content-patterns.md](references/content-patterns.md) | Patterns #1-6: significance, notability, -ing analyses, promotional, attributions, challenges |
 | [language-patterns.md](references/language-patterns.md) | Patterns #7-12: AI vocabulary (era-specific), copula avoidance, parallelisms, rule of three, synonyms, ranges |
-| [style-patterns.md](references/style-patterns.md) | Patterns #13-18, #25-26, #29: em dashes, boldface, lists, title case, emojis, curly quotes, tables, heading levels, thematic breaks |
+| [style-patterns.md](references/style-patterns.md) | Patterns #13-18, #25-26, #29-30: em dashes, boldface, lists, title case, emojis, curly quotes, tables, heading levels, thematic breaks, leaked chatbot artifacts |
 | [communication-patterns.md](references/communication-patterns.md) | Patterns #19-21, #27-28: chat artifacts, disclaimers, sycophancy, subject lines, placeholder text |
-| [filler-patterns.md](references/filler-patterns.md) | Patterns #22-24: filler phrases, hedging, generic conclusions |
+| [filler-patterns.md](references/filler-patterns.md) | Patterns #22-24, #31: filler phrases, hedging, generic conclusions, didactic disclaimers and section summaries |
 | [full-example.md](references/full-example.md) | Comprehensive walkthrough with annotated changes + Wikipedia source |
 | [wikipedia-digest.md](references/wikipedia-digest.md) | Structured digest of Wikipedia source for future diff comparison |
 | [evals.md](references/evals.md) | Eval test suite: trigger tests, negative tests, pattern detection cases, quality rubric |

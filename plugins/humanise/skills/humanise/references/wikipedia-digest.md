@@ -1,6 +1,6 @@
 # Wikipedia Source Digest
 
-Last fetched: 2026-07-12
+Last fetched: 2026-08-02
 Source: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
 Maintained by: WikiProject AI Cleanup
 
@@ -8,9 +8,11 @@ This file is a structured digest of the Wikipedia article used to build this ski
 
 ## How to Update
 
-1. Fetch the latest article:
+1. Fetch the latest article as raw wikitext (WebFetch's summariser drops the words-to-watch boxes, so pull the source and read it directly):
    ```
-   WebFetch https://markdown.new/https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
+   curl -sL "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing?action=raw" -o wiki.txt
+   grep -n "^=" wiki.txt          # section list
+   grep -n "Words to watch" wiki.txt
    ```
 2. Compare the fetched content against this digest below
 3. Look for: new patterns, removed patterns, renamed patterns, updated keywords, new examples, new model-era information
@@ -18,7 +20,7 @@ This file is a structured digest of the Wikipedia article used to build this ski
 
 ---
 
-## Pattern Digest (as of 2026-04-15)
+## Pattern Digest (as of 2026-08-02)
 
 ### Content Patterns
 
@@ -39,8 +41,8 @@ Note: Wiki section 9 ("Vague See Also sections") appears to have been removed fr
 | # (Wiki) | # (Skill) | Pattern Name | Key Signals |
 |-----------|-----------|--------------|-------------|
 | 14 | 7 | AI vocabulary words (era-specific) | See era breakdown below |
-| 15 | 8 | Copula avoidance (is/are) | serves as, stands as, marks, represents, boasts, features, offers |
-| 16 | 9 | Negative parallelisms (3 subtypes) | (A) Not only X but also Y, (B) Not X, it's Y, (C) X rather than Y (Grok) |
+| 15 | 8 | Copula avoidance (is/are) | serves as, stands as, marks, functions as, operates as, represents, boasts, features, maintains, offers, refers to |
+| 16 | 9 | Negative parallelisms (3 subtypes) | (A) Not just X but also Y, (B) Not X, but Y, (C) X rather than Y (Grok); also runs across sentence boundaries via "however" |
 | 19 | 10 | Rule of three | three-item lists, triadic structures |
 | 20 | 11 | Elegant variation (synonym cycling) | protagonist/main character/central figure/hero cycling |
 
@@ -59,6 +61,14 @@ Note: Wiki section 9 ("Vague See Also sections") appears to have been removed fr
 | 30 | 26 | Skipped heading levels | H2 to H4 jumps, accessibility violation |
 | 31 | 29 | Thematic breaks before headings | `----` horizontal rules inserted before every heading, Markdown artifact |
 
+### Markup Patterns (Wiki section "Markup")
+
+| Wiki subsection | # (Skill) | Pattern Name | Key Signals |
+|-----------------|-----------|--------------|-------------|
+| Use of Markdown | 30 | Markdown surviving into a non-Markdown destination | `## Heading`, `**bold**`, ` ```wikitext ` fences |
+| Internal formatting and reference markup bugs | 30 | Leaked chatbot citation artifacts | ChatGPT: contentReference, oaicite/oai_citation, turn0search0/turn0image0, `Example+1`, attributableIndex JSON, utm_source=chatgpt.com. Gemini: `[cite: 1]`, `[span_1](start_span)`. Grok: grok_card, grok_render_citation_card_json. DeepSeek: lenticular brackets, daggers. Perplexity: attached_file, ppl-ai-file-upload. Unclassified: `:::writing` |
+| Broken wikitext | - | Wikipedia-specific; not included in skill |
+
 ### Communication Patterns
 
 | # (Wiki) | # (Skill) | Pattern Name | Key Signals |
@@ -66,6 +76,26 @@ Note: Wiki section 9 ("Vague See Also sections") appears to have been removed fr
 | 32 | 19 | Collaborative communication artifacts | I hope this helps, Let me know, Here is a... |
 | 33 | 20 | Knowledge-cutoff disclaimers | as of [date], based on available information |
 | 34 | 28 | Phrasal templates and placeholder text | [Name], 2025-XX-XX, unfilled blanks |
+
+### Historical Indicators (Wiki section "Historical indicators")
+
+| Wiki subsection | # (Skill) | Pattern Name | Key Signals |
+|-----------------|-----------|--------------|-------------|
+| Didactic disclaimers (Nov 2022-2024) | 31 | Didactic disclaimers | it's important/critical/crucial to note/remember/consider, worth noting, may vary |
+| Section summaries | 31 | Section summaries | In summary, In conclusion, Overall |
+| Prompt refusal | 31 (noted) | Refusal boilerplate | as an AI language model, I cannot offer medical advice but |
+| Abrupt cut offs | 31 (noted) | Generation-limit truncation | text stops mid-sentence |
+| Outdated access-date parameters | - | Wikipedia-specific; not included in skill |
+
+### Signs of Human Writing (Wiki section "Signs of human writing")
+
+Captured in SKILL.md under "Signs of human writing (put these back)". Empirically more common in human text than AI text: simple is/has phrases; plain verbs over stiff synonyms (wrote/authored, moved/relocated, used/utilized, tried/attempted, died/passed away); superlative or definitive statements (one of the best, is the only, was the first); hedging qualifiers and intensifiers (very, perhaps, tends to); isolated wordy constructions (as a result of, in order to, all of the, a part of, the fact that).
+
+Note the deliberate tension with skill #22 - Wikipedia lists wordy constructions as a human tell while #22 trims them. SKILL.md carries the reconciliation.
+
+### Ineffective Indicators (Wiki section "Ineffective indicators")
+
+Captured in SKILL.md under "Weak signals - never rewrite on these alone": perfect grammar; mixed casual/formal register; "bland" or "robotic" prose; "fancy"/academic/formal prose; transition words in isolation; unsourced content; bizarre wikitext; correct wikitext.
 
 ### Skill-Only Patterns (not from Wikipedia)
 
@@ -79,7 +109,7 @@ Note: Wiki section 9 ("Vague See Also sections") appears to have been removed fr
 
 ---
 
-## AI Vocabulary Era Breakdown (as of 2026-04-15)
+## AI Vocabulary Era Breakdown (as of 2026-08-02)
 
 ### 2023 to mid-2024 (GPT-4 era)
 
@@ -93,6 +123,12 @@ align with, bolstered, crucial, emphasizing, enhance, enduring, fostering, highl
 
 emphasizing, enhance, highlighting, showcasing, plus increased notability-related terms (independent coverage, media outlets)
 
+### Full words-to-watch box (superset of the era lists)
+
+Additionally (especially sentence-initial), align with, boasts (meaning "has"), bolstered, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (as a verb), interplay, intricate/intricacies, key (as an adjective), landscape (as an abstract noun), meticulous/meticulously, pivotal, **robust**, showcase, tapestry (as an abstract noun), testament, underscore (as a verb), valuable, vibrant
+
+(`robust` added since the 2026-07-12 sync; `highlight` and `showcase` are listed as bare verbs, not only the -ing forms.)
+
 ### Models with distinct traits
 
 - **ChatGPT/DeepSeek**: Curly quotation marks and apostrophes
@@ -100,6 +136,23 @@ emphasizing, enhance, highlighting, showcasing, plus increased notability-relate
 - **Grok**: Overuses "causal", "empirical", "correlate"; still overusing "underscore" as of 2026; favours the "X rather than Y" negative parallelism (subtype C)
 - **Comment/discussion tell**: overuse of "concrete" ("concrete evidence", "concrete examples") in AI-detection debates
 - **All models**: Rule of three, copula avoidance, negative parallelisms
+- **Idiolect**: ChatGPT and Grok lean into broader-context framing; Gemini and Claude run more concise. ChatGPT is likely the most-used chatbot for Wikipedia edits.
+- **Em dash suppression**: OpenAI GPT-5.1 (Nov 2025) actively suppresses em dashes, so their absence proves nothing
+
+---
+
+## Changes from 2026-07-12 to 2026-08-02
+
+1. **AI vocabulary box gained `robust`**; `highlight` and `showcase` are now listed as plain verbs alongside the -ing forms. Era lists themselves unchanged. Added to language-patterns.md #7.
+2. **Copula avoidance expanded** (Wiki 3.2): words-to-watch now includes ''functions as'', ''operates as'', ''maintains'', ''refers to''. Wikipedia also documents subtler career-verb dodges - "ventured into politics as a candidate" for "was a candidate", "began his career as" for "was" - and notes "refers to" in lead sentences describes the term rather than the subject. Updated language-patterns.md #8.
+3. **Negative parallelism subtype A renamed** "Not just X, but also Y" (was "Not only X but also Y"), and Wikipedia now shows the construction running across sentence boundaries with "however" doing the work of the "not". Updated skill #9.
+4. **Em dashes**: two additions - AI em dashes are typically space-surrounded (contrary to typographic norms), and GPT-5.1 suppresses them, so absence is not evidence of human authorship. Updated style-patterns.md #13.
+5. **NEW skill pattern #30 - leaked chatbot markup and citation artifacts** (Wiki section "Markup", incl. per-model subsections). Model-specific artifacts that survive copy-paste: ChatGPT contentReference/oaicite/turn0search0/attributableIndex/utm_source=chatgpt.com, Gemini [cite: 1] and start_span, Grok grok_card, DeepSeek lenticular brackets, Perplexity ppl-ai-file-upload, and `:::writing`. Unambiguous proof of AI origin. Added to style-patterns.md and SKILL.md.
+6. **NEW skill pattern #31 - didactic disclaimers and section summaries** (Wiki "Historical indicators"). "It's important to note", "worth noting", "may vary", "In summary/In conclusion/Overall", plus refusal boilerplate and mid-sentence cut-offs. Era-tagged 2022-2024 but still common in older source documents. Added to filler-patterns.md.
+7. **NEW SKILL.md section "Signs of human writing (put these back)"** from the Wiki section of the same name - the inverse list (plain copulas, short verbs, superlatives, intensifiers, some wordy constructions). Includes an explicit reconciliation with skill #22, which trims the same wordy constructions.
+8. **NEW SKILL.md section "Weak signals - never rewrite on these alone"** from Wiki "Ineffective indicators", to cut false positives on human writing.
+9. **Model idiolect note added**: ChatGPT/Grok favour broader-context framing; Gemini/Claude are more concise.
+10. **Update procedure changed** to fetch raw wikitext via curl - the WebFetch summariser was dropping the words-to-watch boxes, which is where most of the year's deltas landed.
 
 ---
 

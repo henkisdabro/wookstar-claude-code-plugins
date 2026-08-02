@@ -14,9 +14,11 @@ Different LLM generations favour different words. Recognising the era helps iden
 
 **Mid-2025 onward (GPT-5 era):** emphasizing, enhance, highlighting, showcasing, plus notability-related terms (independent coverage, media outlets)
 
-**Model-specific traits:** Grok overuses "causal", "empirical", "correlate", and continues overusing "underscore" (as of 2026). Grok also favours the "X rather than Y" negative parallelism (see #9). ChatGPT/DeepSeek use curly quotation marks; Gemini/Claude typically avoid them.
+**Model-specific traits:** Grok overuses "causal", "empirical", "correlate", and continues overusing "underscore" (as of 2026). Grok also favours the "X rather than Y" negative parallelism (see #9). ChatGPT/DeepSeek use curly quotation marks; Gemini/Claude typically avoid them. ChatGPT and Grok lean harder on broader-context framing (see #1) than Gemini and Claude do; Gemini and Claude tend to run shorter.
 
-**All-era high-frequency words:** Additionally, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), pivotal, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
+**All-era high-frequency words:** Additionally, boasts (meaning "has"), bolstered, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), meticulous/meticulously, pivotal, robust, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
+
+**Caution:** a word being overused by AI does not make its synonyms suspect, and context matters - "underscore" can mean a literal underline or incidental music. One or two of these words is coincidence; a cluster of them is the tell.
 
 **Problem:** These words appear far more frequently in post-2023 text. They often co-occur, and specific clusters can fingerprint the model generation used.
 
@@ -30,9 +32,9 @@ Different LLM generations favour different words. Recognising the era helps iden
 
 ## 8. Avoidance of "is"/"are" (Copula Avoidance)
 
-**Words to watch:** serves as/stands as/marks/represents [a], boasts/features/offers [a]
+**Words to watch:** serves as/stands as/marks/functions as/operates as/represents [a], boasts/features/maintains/offers [a], refers to
 
-**Problem:** LLMs substitute elaborate constructions for simple copulas.
+**Problem:** LLMs substitute elaborate constructions for simple copulas. Newer output does it in less obvious ways too, swapping a plain "was" for a career verb: "ventured into politics as a candidate" for "was a candidate", "began his career as" for "was". In opening sentences the dodge is often "refers to", which describes the term rather than the thing.
 
 **Before:**
 > Gallery 825 serves as LAAA's exhibition space for contemporary art. The gallery features four separate spaces and boasts over 3,000 square feet.
@@ -46,9 +48,11 @@ Different LLM generations favour different words. Recognising the era helps iden
 
 **Problem:** Constructions that define something by first negating an alternative are overused. Wikipedia documents three subtypes:
 
-- **(A) "Not only X, but also Y"** - additive: "It is not just X, it's Y."
-- **(B) "Not X, but Y"** - corrective: "It's not X, it's Y."
+- **(A) "Not just X, but also Y"** - additive: "Not only ... but ...", "It is not just ..., it's ...".
+- **(B) "Not X, but Y"** - corrective, denying the first characteristic outright: "It's not X, it's Y", "no ..., no ..., just ...".
 - **(C) "X rather than Y"** - the reversed construction; particularly common in Grok output.
+
+It also runs across sentence boundaries, where the second sentence quietly corrects the first: "He hailed from the esteemed Duse family, renowned for their theatrical legacy. Eugenio's life, however, took a path that intertwined both personal ambition and familial complexities." Look for a "however" or "rather" doing the same work as the "not".
 
 **Before:**
 > It's not just about the beat riding under the vocals; it's part of the aggression and atmosphere. It's not merely a song, it's a statement. The track works through texture rather than melody.
