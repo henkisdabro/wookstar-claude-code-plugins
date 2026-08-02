@@ -38,3 +38,6 @@ lerna-debug.log*
 .claude
 # Dependencies (plugins install on first use via their hooks)
 node_modules/
+
+# macOS Finder metadata
+.DS_Store
