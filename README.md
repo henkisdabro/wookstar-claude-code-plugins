@@ -1,6 +1,6 @@
 # Wookstar Claude Code Plugins
 
-A curated marketplace for [Claude Code](https://claude.ai/code) - **34 plugins** across development, analytics, AI, content, and ops. Pick what you need; everything is independently installable.
+A curated marketplace for [Claude Code](https://claude.ai/code) - **33 plugins** across development, analytics, AI, content, and ops. Pick what you need; everything is independently installable.
 
 ---
 
@@ -15,7 +15,7 @@ A curated marketplace for [Claude Code](https://claude.ai/code) - **34 plugins**
 | [Content](#content) | 3 | Word/Excel/PDF processing, FFmpeg reference, AI-text humaniser |
 | [Data](#data) | 3 | Stocks, crypto, FX rates |
 | [Utilities](#utilities) | 4 | Timezone tools, HTTP fetcher, MikroTik routers, weather |
-| [LSP servers](#lsp-servers) | 6 | Real-time diagnostics for Bash, CSS, HTML, JSON, Tailwind, YAML |
+| [LSP servers](#lsp-servers) | 5 | Real-time diagnostics for Bash, CSS, HTML, JSON, YAML |
 
 > Two install surfaces - `/plugin install …` runs **inside** an active Claude Code session; `claude plugin install …` runs in a **plain terminal**. Both accept the same arguments. See [Installation Methods](#installation-methods) for the full mapping.
 
@@ -57,7 +57,7 @@ A curated marketplace for [Claude Code](https://claude.ai/code) - **34 plugins**
 
 - **`documents`** - Word (.docx), Excel (.xlsx), PDF processing - tracked changes, forms, tables, OCR, formulas.
 - **`ffmpeg`** - Video and audio CLI reference - filters, codecs (H.264/H.265/VP9), GPU acceleration, common workflows.
-- **`humanise`** - Strip 29 AI writing tells from text - inflated language, em-dash overuse, sycophantic tone, formulaic structure, placeholder text.
+- **`humanise`** - Strip 31 AI writing tells from text - inflated language, em-dash overuse, sycophantic tone, formulaic structure, placeholder text, leaked chatbot artifacts. Calibrates on a sample of your own writing, audits its own draft, and never invents a fact to make a vague sentence specific.
 
 ### Data
 
@@ -82,19 +82,17 @@ Real-time diagnostics, completions, and hover docs. **Two-step install for each:
 | **`lsp-css`** | `.css`, `.scss`, `.less` | `npm i -g vscode-langservers-extracted` |
 | **`lsp-html`** | `.html`, `.htm` | `npm i -g vscode-langservers-extracted` |
 | **`lsp-json`** | `.json`, `.jsonc` | `npm i -g vscode-langservers-extracted` |
-| **`lsp-tailwind`** | Tailwind classes in `.html`/`.css`/`.tsx`/`.jsx`/`.ts`/`.js` | `npm i -g @tailwindcss/language-server` |
 | **`lsp-yaml`** | `.yaml`, `.yml` (auto-detects GitHub Actions, Docker Compose, Kubernetes, 900+ schemas) | `npm i -g yaml-language-server` |
 
 > `lsp-css`, `lsp-html`, and `lsp-json` share the same `vscode-langservers-extracted` package - one npm install covers all three.
 
-Then install the plugins (e.g. all six at once):
+Then install the plugins (e.g. all five at once):
 
 ```
 /plugin install lsp-bash@wookstar-claude-plugins
 /plugin install lsp-css@wookstar-claude-plugins
 /plugin install lsp-html@wookstar-claude-plugins
 /plugin install lsp-json@wookstar-claude-plugins
-/plugin install lsp-tailwind@wookstar-claude-plugins
 /plugin install lsp-yaml@wookstar-claude-plugins
 ```
 
@@ -366,7 +364,7 @@ Per-plugin READMEs:
 
 - **Toolkits** - [developer](./plugins/developer/README.md) · [documents](./plugins/documents/README.md) · [shopify-developer](./plugins/shopify-developer/README.md) · [humanise](./plugins/humanise/README.md) · [message](./plugins/message/README.md) · [react-best-practices](./plugins/react-best-practices/README.md) · [ffmpeg](./plugins/ffmpeg/README.md) · [google-tagmanager](./plugins/google-tagmanager/README.md) · [google-analytics](./plugins/google-analytics/README.md) · [google-ads-scripts](./plugins/google-ads-scripts/README.md) · [google-apps-script](./plugins/google-apps-script/README.md) · [tampermonkey](./plugins/tampermonkey/README.md) · [gemini](./plugins/gemini/README.md) · [codex](./plugins/codex/README.md) · [timezone-tools](./plugins/timezone-tools/README.md)
 - **MCP servers** - [mcp-cloudflare](./plugins/mcp-cloudflare/README.md) · [mcp-excalidraw](./plugins/mcp-excalidraw/README.md) · [mcp-fetch](./plugins/mcp-fetch/README.md) · [mcp-google-workspace](./plugins/mcp-google-workspace/README.md) · [mcp-mikrotik](./plugins/mcp-mikrotik/README.md) · [mcp-n8n](./plugins/mcp-n8n/README.md) · [mcp-notion](./plugins/mcp-notion/README.md) · [mcp-open-meteo](./plugins/mcp-open-meteo/README.md) · [mcp-gemini-bridge](./plugins/mcp-gemini-bridge/README.md) · [mcp-perplexity](./plugins/mcp-perplexity/README.md) · [mcp-alphavantage](./plugins/mcp-alphavantage/README.md) · [mcp-coingecko](./plugins/mcp-coingecko/README.md) · [mcp-currency-conversion](./plugins/mcp-currency-conversion/README.md)
-- **LSP servers** - [lsp-bash](./plugins/lsp-bash/README.md) · [lsp-css](./plugins/lsp-css/README.md) · [lsp-html](./plugins/lsp-html/README.md) · [lsp-json](./plugins/lsp-json/README.md) · [lsp-tailwind](./plugins/lsp-tailwind/README.md) · [lsp-yaml](./plugins/lsp-yaml/README.md)
+- **LSP servers** - [lsp-bash](./plugins/lsp-bash/README.md) · [lsp-css](./plugins/lsp-css/README.md) · [lsp-html](./plugins/lsp-html/README.md) · [lsp-json](./plugins/lsp-json/README.md) · [lsp-yaml](./plugins/lsp-yaml/README.md)
 
 ---
 

@@ -6,7 +6,7 @@ allowed-tools: Read, Write, Edit, Grep, Glob, AskUserQuestion
 
 # Humaniser: remove AI writing patterns
 
-Based on Wikipedia's "Signs of AI writing", maintained by WikiProject AI Cleanup. Last synced with the Wikipedia source: 2026-08-02.
+Based on Wikipedia's "Signs of AI writing", maintained by WikiProject AI Cleanup. Last checked against the Wikipedia source: 2026-08-05.
 
 > Removing AI patterns is table stakes. The job is giving the text a **pulse**.
 

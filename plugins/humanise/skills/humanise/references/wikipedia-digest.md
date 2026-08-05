@@ -1,6 +1,7 @@
 # Wikipedia Source Digest
 
 Last fetched: 2026-08-02
+Last checked (no changes needed): 2026-08-05
 Source: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
 Maintained by: WikiProject AI Cleanup
 
@@ -14,6 +15,15 @@ This file is a structured digest of the Wikipedia article used to build this ski
    grep -n "^=" wiki.txt          # section list
    grep -n "Words to watch" wiki.txt
    ```
+   Faster route when the last-checked date is recent: diff that revision against current and read only what moved.
+   ```
+   UA="humanise-skill-sync/1.0"
+   curl -s -A "$UA" "https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=Wikipedia:Signs_of_AI_writing&rvlimit=30&rvprop=ids|timestamp|comment|size&format=json"
+   curl -s -A "$UA" "https://en.wikipedia.org/w/api.php?action=compare&fromrev=<REVID>&torelative=cur&prop=diff&format=json"
+   ```
+   The API needs a User-Agent header or it returns 403. Never strip `<ref>` tags with a
+   non-greedy regex before reading a section: `<ref name="x"/>` opens a match that runs to
+   the next `</ref>`, silently eating the bullets in between and inventing a mangled list.
 2. Compare the fetched content against this digest below
 3. Look for: new patterns, removed patterns, renamed patterns, updated keywords, new examples, new model-era information
 4. Update the relevant reference files and this digest
@@ -138,6 +148,25 @@ Additionally (especially sentence-initial), align with, boasts (meaning "has"), 
 - **All models**: Rule of three, copula avoidance, negative parallelisms
 - **Idiolect**: ChatGPT and Grok lean into broader-context framing; Gemini and Claude run more concise. ChatGPT is likely the most-used chatbot for Wikipedia edits.
 - **Em dash suppression**: OpenAI GPT-5.1 (Nov 2025) actively suppresses em dashes, so their absence proves nothing
+
+---
+
+## Check on 2026-08-05 (no skill changes)
+
+Article checked at revision 1367370457 (2026-08-02) against current. Three edits since, none
+carrying a portable pattern:
+
+1. **"+Pangram" under AI detection tools** - adds another detector to the caveats section. The
+   skill does not recommend detectors, and the caveat that they misfire is already carried.
+2. **Age-of-text tooling under "Signs of human writing"** (2026-08-04) - a paragraph on Who Wrote
+   That and WikiBlame for finding the revision that introduced a block of text. Wikipedia-specific:
+   it reads edit history, not prose, so it cannot apply to arbitrary text.
+3. Indexability and vandalism-revert churn on 2026-08-03. No content.
+
+Section tree otherwise identical to the 2026-08-02 digest: 31 skill patterns still map cleanly,
+"Ineffective indicators" still lists the eight weak signals (the skill carries the five that are
+not wikitext-specific), and the "Syntax" list under "Signs of human writing" still holds all five
+inverse constructions.
 
 ---
 

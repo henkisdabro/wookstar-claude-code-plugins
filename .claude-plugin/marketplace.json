@@ -563,7 +563,7 @@
       "name": "humanise",
       "source": "./plugins/humanise",
       "description": "Humanise text and remove AI writing patterns - detects and fixes 31 AI tell-tales including inflated language, promotional tone, AI vocabulary, em dash overuse, filler phrases, sycophantic tone, placeholder text, formulaic structure, and thematic breaks",
-      "version": "4.3.0",
+      "version": "4.3.1",
       "author": {
         "name": "henkisdabro",
         "email": "whom-wealthy.2z@icloud.com"
