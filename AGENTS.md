@@ -3,11 +3,16 @@
 A Claude Code plugin marketplace. No build step, no tests: every plugin is a directory under
 `plugins/`, and it does not exist until it also has an entry in `.claude-plugin/marketplace.json`.
 
-Verify a change with `claude plugin validate .` (clean at HEAD), then exercise it:
-`/plugin marketplace add .`, `/plugin install <plugin>@wookstar-claude-plugins`, and
-`/plugin marketplace update wookstar` to pick up later edits. Bump the plugin's `version` in
-marketplace.json whenever its content changes - that is what busts the install cache for people who
-already have it.
+Verify a change with `claude plugin validate .` (clean at HEAD, warnings included), then exercise
+it: `/plugin marketplace add .`, `/plugin install <plugin>@wookstar-claude-plugins`, and
+`/plugin marketplace update wookstar` to pick up later edits.
+
+Bump the plugin's `version` whenever its content changes - that is what busts the install cache for
+people who already have it. Bump it in **`plugins/<name>/.claude-plugin/plugin.json`**, which is the
+field that decides the installed version, and update the marketplace entry to match. Bumping only
+the marketplace entry does nothing: at install time plugin.json wins and the entry version is
+silently ignored, so the cache never busts and the change never reaches anyone. All 33 plugins
+currently agree across both files; `claude plugin validate .` warns on any pair that drifts.
 
 ## This repo is public
 
@@ -19,11 +24,16 @@ wrong by being helpful.
 Before committing, expect zero hits from:
 
 ```bash
-grep -rEin 'henrik ?so[ei]derlund|[a-z0-9._%+-]+@(henriksoderlund|gmail|icloud|outlook)\.[a-z]{2,}' \
-  plugins/ scripts/ tools/ README.md .claude-plugin/ | grep -v 'whom-wealthy.2z@icloud.com'
+git ls-files -z | xargs -0 grep -EIin \
+  'henrik ?so[ei]derlund|[a-z0-9._%+-]+@(henriksoderlund|gmail|icloud|outlook)\.[a-z]{2,}' \
+  | grep -v 'whom-wealthy.2z@icloud.com'
 ```
 
-## Two things that are declared in two places
+It scans every tracked file rather than a hand-listed set of paths, so it cannot go stale as the
+repo grows - and it covers this file, which a path list left out and which is the likeliest place
+for a real name to land.
+
+## Three things that are declared in two places
 
 **MCP servers** belong in the plugin's own `.mcp.json`, referenced from its marketplace entry as
 `"mcpServers": "./.mcp.json"`. Never repeat them in `plugin.json` - one source of truth, and the
@@ -32,6 +42,11 @@ marketplace decides what loads.
 **LSP servers** are the opposite and do need duplicating: each `plugins/lsp-*/` has its `lspServers`
 block in both `.claude-plugin/plugin.json` and its marketplace entry. Change one and you must change
 the other.
+
+**Plugin versions** live in both files too, and here the duplication is not symmetrical: plugin.json
+is authoritative at install time and the marketplace entry is cosmetic. Bump both, lead with
+plugin.json, and let the validator confirm they match. See the note above on why bumping the entry
+alone is a no-op.
 
 ## Skill descriptions are the only trigger surface
 
