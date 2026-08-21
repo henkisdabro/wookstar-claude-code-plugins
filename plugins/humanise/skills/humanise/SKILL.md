@@ -1,19 +1,19 @@
 ---
 name: humanise
-description: Humanise text by removing AI writing patterns so it reads as human-written. Use when the user asks to humanise, de-AI or de-slop a draft, says it reads like a robot or like ChatGPT wrote it, or wants a press-release voice given a pulse. Applies 31 patterns from Wikipedia's "Signs of AI writing". For grammar-only proofreading or spell checking, edit normally instead.
+description: Humanise text by removing AI writing patterns so it reads as human-written. Use when the user asks to humanise, de-AI or de-slop a draft, says it reads like a robot or like ChatGPT wrote it, or wants a press-release voice given a pulse. Applies 32 patterns from Wikipedia's "Signs of AI writing". For grammar-only proofreading or spell checking, edit normally instead.
 allowed-tools: Read, Write, Edit, Grep, Glob, AskUserQuestion
 ---
 
 # Humaniser: remove AI writing patterns
 
-Based on Wikipedia's "Signs of AI writing", maintained by WikiProject AI Cleanup. Last checked against the Wikipedia source: 2026-08-05.
+Based on Wikipedia's "Signs of AI writing", maintained by WikiProject AI Cleanup. Last checked against the Wikipedia source: 2026-08-21.
 
 > Removing AI patterns is table stakes. The job is giving the text a **pulse**.
 
 ## Process
 
 1. Calibrate on the author's voice if a sample is available (see Voice calibration)
-2. Scan all 31 patterns (see Pattern summary)
+2. Scan all 32 patterns (see Pattern summary)
 3. Read the reference file for every pattern found
 4. Rewrite each flagged section, replacing the pattern with pulse
 5. Audit that draft against the two questions below, answering both in writing
@@ -108,8 +108,9 @@ Identify patterns here, then read the linked reference for rewriting guidance an
 | 8 | Copula avoidance | serves as, stands as, boasts, features, offers [a] |
 | 9 | Negative parallelisms (three subtypes) | "Not only...but also..." / "It's not X, it's Y" / "X rather than Y" (Grok) |
 | 10 | Rule of three | three-item lists forced into every sentence |
-| 11 | Synonym cycling | protagonist/main character/central figure/hero cycling |
 | 12 | False ranges | from X to Y where X and Y aren't on a scale |
+| 32 | Vague expression of connection | associated with, in connection with, in association with, connected to |
+| 11 | Synonym cycling (pre-2025 era) | protagonist/main character/central figure/hero cycling |
 
 ### Style patterns ([detailed reference](references/style-patterns.md))
 
@@ -145,6 +146,8 @@ Identify patterns here, then read the linked reference for rewriting guidance an
 | 24 | Generic positive conclusions | future looks bright, exciting times, journey toward excellence |
 | 31 | Didactic disclaimers and section summaries (2022-24 era) | it's important to note, worth noting, may vary, In summary, In conclusion, Overall |
 
+Patterns 11 and 31 are **historical**: Wikipedia files them as tells of older models, so they mark text drafted in 2023-24 or lifted from an older document rather than anything a current model just produced.
+
 ---
 
 ## When not to use
@@ -165,6 +168,8 @@ Wikipedia lists these as ineffective indicators. Treating them as tells produces
 - Missing citations, or conversely well-formatted ones
 
 One or two matches anywhere in this skill is coincidence. Clusters are the signal.
+
+Wikipedia also documents a pro-authoritarian slant in model output as a possible indicator. That is a fact-checking concern, not a rewriting one - this skill never changes what a text claims, so a suspect claim gets flagged back to the author rather than rewritten.
 
 ---
 
