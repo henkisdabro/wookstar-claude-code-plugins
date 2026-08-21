@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Comprehensive Claude Code marketplace with specialised plugins for development, documents, analytics, e-commerce, AI integrations, and individual MCP server plugins",
-    "version": "6.9.0"
+    "version": "6.9.1"
   },
   "plugins": [
     {
@@ -294,11 +294,12 @@
       "name": "mcp-excalidraw",
       "source": "./plugins/mcp-excalidraw",
       "description": "Hand-drawn diagrams with streaming animations, fullscreen editing, checkpoint/restore, and export to excalidraw.com",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Anton Pidkuiko",
         "url": "https://github.com/antonpk1"
       },
+      "homepage": "https://github.com/excalidraw/excalidraw-mcp",
       "keywords": [
         "mcp",
         "excalidraw",

@@ -19,3 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Third-party components
+
+`plugins/mcp-excalidraw` wraps a third-party MCP server. It ships only configuration and
+documentation - no upstream code is vendored - but the server it points at,
+https://github.com/excalidraw/excalidraw-mcp, was created by Anton Pidkuiko, is maintained by the
+Excalidraw organisation, and is licensed under MIT. The copyright above does not extend to it.
