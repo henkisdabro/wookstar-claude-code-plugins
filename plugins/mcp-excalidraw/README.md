@@ -32,4 +32,6 @@ This MCP server uses HTTP transport via a remote Vercel endpoint. No API key or 
 
 ## Credits
 
-Based on the [Excalidraw MCP App](https://github.com/antonpk1/excalidraw-mcp-app) by [Anton Pidkuiko](https://github.com/antonpk1). Licensed under MIT.
+Based on [excalidraw-mcp](https://github.com/excalidraw/excalidraw-mcp), created by [Anton Pidkuiko](https://github.com/antonpk1) and now maintained by the [Excalidraw](https://github.com/excalidraw) organisation. Licensed under MIT.
+
+This plugin is a thin wrapper: it ships a `.mcp.json` pointing at the upstream hosted endpoint and this README. No upstream code is vendored here.
