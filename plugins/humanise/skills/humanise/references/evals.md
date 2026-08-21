@@ -95,6 +95,32 @@ patterns and inject voice.
 
 ---
 
+### C2b: Vague expression of connection (#32)
+
+**Input:**
+
+> Dr Halloran is associated with the Meridian Institute, a research centre widely associated with
+> climate modelling. She has also been connected with several government advisory panels, and her
+> name appears in connection with the 2024 coastal resilience report.
+
+**Patterns flagged:**
+
+- #32 Vague connection: "associated with" (x2), "connected with", "in connection with"
+- #7 AI vocabulary: "widely associated" as buzzspeak intensifier
+
+**Good output characteristics:**
+
+- Each relationship named outright, or the claim flagged back to the author as unverifiable
+- No new relationship invented to fill the gap - "associated with" becoming "founded" without a
+  source is a fabrication and fails the audit
+- Plain prepositions (of, for, by) or concrete verbs (works at, advises, co-authored) where the
+  source supports them
+
+**Negative check:** "arrested in connection with the robbery" must survive untouched - legal register,
+where the vagueness is the correct term of art.
+
+---
+
 ### C3: Style patterns
 
 **Input:**

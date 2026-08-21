@@ -1,7 +1,8 @@
 # Wikipedia Source Digest
 
-Last fetched: 2026-08-02
-Last checked (no changes needed): 2026-08-05
+Last fetched: 2026-08-21
+Last checked: 2026-08-21 (three changes applied - see below)
+Previously fetched: 2026-08-02
 Source: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
 Maintained by: WikiProject AI Cleanup
 
@@ -30,7 +31,7 @@ This file is a structured digest of the Wikipedia article used to build this ski
 
 ---
 
-## Pattern Digest (as of 2026-08-02)
+## Pattern Digest (as of 2026-08-21)
 
 ### Content Patterns
 
@@ -52,9 +53,9 @@ Note: Wiki section 9 ("Vague See Also sections") appears to have been removed fr
 |-----------|-----------|--------------|-------------|
 | 14 | 7 | AI vocabulary words (era-specific) | See era breakdown below |
 | 15 | 8 | Copula avoidance (is/are) | serves as, stands as, marks, functions as, operates as, represents, boasts, features, maintains, offers, refers to |
+| new | 32 | Vague expression of connection or association | in connection with/to, connected with/to, in association with, associated with (WP:AICONNECT, added 2026-08-19; sits between copula avoidance and negative parallelisms) |
 | 16 | 9 | Negative parallelisms (3 subtypes) | (A) Not just X but also Y, (B) Not X, but Y, (C) X rather than Y (Grok); also runs across sentence boundaries via "however" |
 | 19 | 10 | Rule of three | three-item lists, triadic structures |
-| 20 | 11 | Elegant variation (synonym cycling) | protagonist/main character/central figure/hero cycling |
 
 ### Style Patterns
 
@@ -96,6 +97,7 @@ Note: Wiki section 9 ("Vague See Also sections") appears to have been removed fr
 | Prompt refusal | 31 (noted) | Refusal boilerplate | as an AI language model, I cannot offer medical advice but |
 | Abrupt cut offs | 31 (noted) | Generation-limit truncation | text stops mid-sentence |
 | Outdated access-date parameters | - | Wikipedia-specific; not included in skill |
+| Lexical diversity/elegant variation | 11 | Synonym cycling | Demoted from "Language and grammar" to historical on 2026-08-18 - modern models no longer carry a repetition penalty. Wikipedia's own caveat: non-native speakers avoid repetition too (Italian schooling teaches it) |
 
 ### Signs of Human Writing (Wiki section "Signs of human writing")
 
@@ -135,9 +137,9 @@ emphasizing, enhance, highlighting, showcasing, plus increased notability-relate
 
 ### Full words-to-watch box (superset of the era lists)
 
-Additionally (especially sentence-initial), align with, boasts (meaning "has"), bolstered, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (as a verb), interplay, intricate/intricacies, key (as an adjective), landscape (as an abstract noun), meticulous/meticulously, pivotal, **robust**, showcase, tapestry (as an abstract noun), testament, underscore (as a verb), valuable, vibrant
+Additionally (especially sentence-initial), align with, boasts (meaning "has"), bolstered, crucial, **deep dive**, delve, emphasizing, enduring, enhance, fostering, garner, highlight (as a verb), interplay, intricate/intricacies, key (as an adjective), landscape (as an abstract noun), meticulous/meticulously, pivotal, **robust**, showcase, tapestry (as an abstract noun), testament, underscore (as a verb), valuable, vibrant
 
-(`robust` added since the 2026-07-12 sync; `highlight` and `showcase` are listed as bare verbs, not only the -ing forms.)
+(`robust` added since the 2026-07-12 sync; `deep dive` added since the 2026-08-02 sync; `highlight` and `showcase` are listed as bare verbs, not only the -ing forms.)
 
 ### Models with distinct traits
 
@@ -148,6 +150,37 @@ Additionally (especially sentence-initial), align with, boasts (meaning "has"), 
 - **All models**: Rule of three, copula avoidance, negative parallelisms
 - **Idiolect**: ChatGPT and Grok lean into broader-context framing; Gemini and Claude run more concise. ChatGPT is likely the most-used chatbot for Wikipedia edits.
 - **Em dash suppression**: OpenAI GPT-5.1 (Nov 2025) actively suppresses em dashes, so their absence proves nothing
+
+---
+
+## Changes from 2026-08-05 to 2026-08-21
+
+Article checked at revision current on 2026-08-21 (latest edit 2026-08-20T23:13Z). Three portable
+changes, all applied:
+
+1. **New indicator: "Vague expression of connection or association"** (WP:AICONNECT / WP:AIASSOCIATION),
+   added under "Language and grammar" on 2026-08-19 by EmoryNB. Words to watch: *in connection with/to*,
+   *connected with/to*, *in association with*, *associated with*. Newer models reach for indirect
+   constructions instead of *of*, *for*, *by*, or naming the relationship outright (worked with, used in,
+   caused by). Often clusters with promotional language and AI vocabulary ("widely associated"). Wikipedia
+   is explicit that the indirection alone is not enough - abundance plus other signs is. Added as skill
+   pattern **#32** in language-patterns.md; skill count moves 31 to 32.
+2. **"Lexical diversity/elegant variation" demoted to "Historical indicators"** (2026-08-18, Closed Limelike
+   Curves: "No longer common - modern models don't need repetition avoidance"). Skill pattern **#11** re-tagged
+   as historical alongside #31, with Wikipedia's non-native-speaker caveat carried across.
+3. **AI vocabulary box gained `deep dive`** (sourced to The Economist, July 2026). Era lists themselves
+   unchanged. Added to the superset in language-patterns.md #7.
+
+Considered and not adopted:
+
+- **"Biases in content" / "Pro-authoritarian bias"** (new subsection under Miscellaneous, 2026-08-20). A
+  content-verification indicator, not a rewriting pattern - the skill's no-fabrication rule already forbids
+  touching what a text claims. Noted in SKILL.md under weak signals as a flag-back-to-author case.
+- Presentation churn only: negative-parallelism highlighting, collapsing of the superficial-analyses and
+  canned-notability examples, condensed search-link list under "Comment-specific indicators".
+
+Section tree otherwise unchanged: "Ineffective indicators" still lists the same eight weak signals, and the
+"Syntax" list under "Signs of human writing" still holds all five inverse constructions.
 
 ---
 
