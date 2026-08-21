@@ -41,3 +41,6 @@ node_modules/
 
 # macOS Finder metadata
 .DS_Store
+
+# Agent refactor working notes
+.agent-refactor/

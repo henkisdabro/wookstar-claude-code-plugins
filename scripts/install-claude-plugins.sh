@@ -3,7 +3,7 @@
 # Claude Code Plugin Installation Script
 # Automatically installs all marketplaces and plugins for fresh Linux installations
 #
-# Author: Henrik Soederlund
+# Author: henkisdabro
 # Repository: https://github.com/henkisdabro/wookstar-claude-plugins
 #
 # Usage:

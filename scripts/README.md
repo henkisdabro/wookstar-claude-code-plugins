@@ -6,7 +6,7 @@ This directory contains utility scripts that are **personal tools** and not part
 
 **Purpose:** Automated installation of Claude Code marketplaces and plugins for fresh Linux installations.
 
-**Note:** This is a personal convenience script maintained by Henrik Soederlund. It installs plugins from multiple marketplaces (not just wookstar) and represents personal preferences for a development environment setup.
+**Note:** This is a personal convenience script maintained by henkisdabro. It installs plugins from multiple marketplaces (not just wookstar) and represents personal preferences for a development environment setup.
 
 ### What It Installs
 
@@ -50,5 +50,5 @@ Edit the `PLUGINS_TO_ENABLE` array in the script to add/remove plugins according
 
 ---
 
-**Author:** Henrik Soederlund
+**Author:** henkisdabro
 **Not for redistribution** - This is a personal utility script.
